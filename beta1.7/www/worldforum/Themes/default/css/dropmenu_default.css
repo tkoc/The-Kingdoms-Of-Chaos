@@ -1,0 +1,108 @@
+/* the new admin menu */
+#adm_container
+{
+	display: table;
+	margin-left: 15px;
+	padding: 0 5px 0 5px;
+}
+
+ul.admin_menu, ul.admin_menu li ul
+{
+	padding: 0;
+	list-style: none;
+}
+ul.admin_menu
+{
+	display: table-cell;
+}
+* html #adm_container, * html ul.admin_menu
+{
+	height: 1%;
+	width: auto;
+}
+ul.admin_menu li
+{
+	position: relative;
+	float: left;
+	padding-right: 4px;
+	text-transform: uppercase;
+}
+ul.admin_menu li h4
+{
+	margin: 0;
+	padding: 7px 5px 3px 5px;
+	cursor: default;
+	font-size: x-small;
+	color: #000000;
+	background: #FFFFFF;
+	border: solid 1px #C0C0C0;
+}
+ul.admin_menu li.chosen
+{
+	padding-left: 6px;
+}
+ul.admin_menu li.chosen h4
+{
+	background: #E0E3EF;
+	padding-right: 10px;
+	border: solid 1px #C0C0C0;
+}
+ul.admin_menu li ul li
+{
+	background: none;
+	width: 14em;
+	float: none;
+	margin: 0;
+	padding: 0;
+}
+ul.admin_menu li ul
+{
+	margin: 0 0 0 8px;
+	z-index: 90;
+	display: none;
+	position: absolute;
+	top: 100%;
+	border: solid 1px #808080;
+	background: #F8F8FB;
+}
+ul.admin_menu li ul li ul, ul.admin_menu li ul li.over ul
+{
+	display: none;
+	position: absolute;
+	left: -999em;
+	top: 0;
+	border: solid 1px #A0A0A0;
+	background: #FFF;
+}
+ul.admin_menu li ul li a
+{
+	display: block;
+	padding: 3px 6px 3px 6px;
+	font-size: x-small;
+	text-decoration: none;
+	background: none;
+	text-transform: none;
+	color: black;
+}
+ul.admin_menu li ul li a.chosen
+{
+	font-weight: bold;
+}
+ul.admin_menu li ul li a:hover, #admin_menu ul li ul li:hover
+{
+	background: #C8E2FB;
+}
+ul.admin_menu li > ul
+{
+	top: auto;
+	left: auto;
+}
+ul.admin_menu li:hover ul, ul.admin_menu li.over ul
+{
+	display: block;
+}
+ul.admin_menu li ul li:hover ul, ul.admin_menu li ul li.over ul
+{
+	display: block;
+	left: 13em;
+}

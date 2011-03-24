@@ -1,0 +1,22 @@
+Please use this template when you start a player page
+
+
+<file>
+===== Name =====
+
+==== About ====
+
+About the player.
+
+==== Contact information ====
+
+How to contact this person. (notice don't publish email/msn addresses without permission!)
+
+==== Personal note ====
+
+A personal note by the player.
+
+==== Known as ====
+
+nick 1 / nick 2 / nick 3
+</file>

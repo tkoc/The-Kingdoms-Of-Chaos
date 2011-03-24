@@ -1,0 +1,237 @@
+===== Attacking =====
+
+===This part of the code is under construction, information can change any-time===
+
+==== Regular attack ==== 
+Regular attack is for stealing acres. This attacks takes 10 ticks. This should be used to slow down other provinces and use the acres to grow yourself.
+Early age you can make a high defense to defend you against regular attacks. Mid/late age it will be more difficult to defend against regular attack, since allot of bonuses will apply.
+
+
+==== Massacre ==== 
+Massacre is to deal maximum damage, you will not steal anything. Your troops 'points' all count towards offense (e.g. a 3/1 unit gets 4 (3+1) offensive points, but no defensive points. A 2/6 unit gets 8 (2+6) points in offense. ). As a result, your troops suffer quite harsh losses, but also kill off quite a lot of enemy troops + destroy acres + set fire to buildings. You should only use this if you are seriously, seriously mad at someone. 
+
+You also need a knowledge, the massacre knowledge.
+
+You do destroy less acres based on the acre-difference between you and your target.
+
+
+==== Pillage ==== 
+Pillage is used to steal resources. 
+
+- It's heavily size-modded. So, attacking people way bigger or smaller then you doesn't work.
+
+- It's relative to the amount of attack power you send.
+
+- The more resources the target has, the more you'll steal
+
+- Works in all cases like a normal attack, instead that you don't need to overpower him.
+
+- If you win the attack, you steal more resources.
+
+- During 6 ticks
+
+
+=== How do I find good targets? I mean what is a GOOD target? ===
+
+ 
+Visit [[http://stats.tkoc.net|stats.tkoc.net]]. It is a very useful tool. Well there shows each tick your growth in acres and networth. If you see that someone has lost networth (it will be shown with red percentage) then he might have attacked and so he has military away. So if you sop him (spy on province) and you see that he hasn't 100% morale (or for orcs less than 115%)(Don't forget the councillors' bonuses though) means that he has attacked Continue your intel with a SoM (spy on military) and the SoB (spy on buildings).
+
+
+SoM will display army at war (with 5% variation)
+
+You need the SoB to see if the target does have walls (10% walls = 20% defense!)
+
+You never know if the person has a councilor, but if you want, you can assassinate it right before your attack to be sure. 
+
+A good target is the a province with low ratio.
+
+
+==== Acres won/lost === 
+
+
+You can steal about 10% of the defenders acres, and to a maximum of 50% of your own acres.
+It is also much more rewarding to attack people bigger then you.
+Also do not try and attack people less then 75% of your own size, as there is a serious reduction on the acres you gain if you hit someone smaller then 75% of your acres, or 125% higher then your acres. This directly affects the 0,1 modifier in the above formula, and it tunes it down.
+
+
+=== How do military bonuses work? ===
+
+The total of all these bonuses you have, are displayed at the Council page.
+
+This is always correct.
+
+- Docks can give a maximum of 10% additional attack power. (20% of your acres = max)
+
+- Blacksmiths can give a maximun of 40% additional attack power. (20% of your acres = max)
+
+- Leather army gives 5% additonal attack and defense power.
+
+- Metal weapons gives 10% additonal attack and defense power.
+
+- Theology gives 5% additional attack power.
+
+- Some councilors give additional attack power, defense or morale.
+
+- Racial bonus for offense and defense.
+
+- Enrage/Battle Fury/Rufunka/Battle Rage increase attack power
+
+- A Physical shield will increase your defense with 10%
+
+All the bonuses from various parts of the game stack.
+
+
+=== Example ===
+
+Leather Armor gives 5%, Metal Weapons 10% more attack. 
+Together they stack and give not 15, but 15.5% more attack.
+
+
+=== Example ===
+
+Military 100.77% / 32.83%.
+
+This means your province will have 100.77% additional attack power and 32.83% additional defense.
+Morale bonuses
+
+
+110% morale = 10% attack = 1% defense
+
+100% morale = 0% attack = 0% defense
+
+90% morale = -10% attack = -1% defense
+
+80% morale = -20% attack =-2% defense
+
+etc... 
+
+=== How to calculate? ===
+
+
+When you attack: ''morale / 100 = attack modifier''
+
+Your defense: ''0.9 + { morale / 1000 } = defense modifier''
+
+
+You can increase your morale with Fireworks. Decrease with Fear and Rain.
+
+If your maximum morale is 100% then you can't Firework. It will have no effect.
+
+If you have more then the standard of 100% morale, you can firework.
+
+If you have a councillor that gives bonus morale, you can cast fireworks to gain more morale (there is a limit)
+With the good situation you can have a morale more then 160%. Which is 60%(!) additional attack power.
+
+You can firework up to a maximum of ''(max morale/100)2''
+
+So 110% max morale: 121% if fireworked
+
+126.5% max: 160% fireworked
+
+
+You will lose this extra morale at the tick if unused.
+
+=== How to calculate your attack points? ===
+
+''Attack points * military bonus * morale/100''
+
+
+
+=== Example 1 ===
+
+You have 10000 Trolls.
+
+You have 100.77% military bonus.
+
+You have 160% morale.
+
+Formula: ''(10000 * 6) * 2.0077 * 1.60'' = 192739.2 Attack power
+
+
+
+=== Example 2 ===
+
+You have 3000 Legions.
+
+You have 20% military bonus.
+
+You have 100% morale.
+
+Formula: ''(3000 * 3) * 1.20 * 1.00'' = 10800 attack power
+
+
+
+=== Example 3 ===
+
+You have 15000 Rangers
+
+You have 50% military bonus.
+
+You have 92% morale.
+
+Formula: ''(15000 * 4) * 1.50 * 0.92'' = 82800 attack power
+
+
+==== General attacking tips and tricks ====
+
+
+1. 
+
+Attack just before the tick, so the opponent has already lost one tick to react/retaliate against you. Don't wait to long, or you will attack right in the new tick, thus gaining one extra tick at war.
+
+
+
+
+2. 
+
+Orcs attack with 15% faster attack speed. An 8.5tick attack rounds off to 9. If an Orc builds 1 Beast Den, the attack time will be reduced to 8.499, which rounds off to 8 ticks. Together with tip 1 you will have 2 ticks less attack time.
+
+
+
+
+3. 
+
+Don't forget that the opponent has thieves and wizards to defend. A Screen (Thievery operation) would tell you ho many they have. This info is exact it does not have the 5% rule. If you can't get a Screen do a SoB (Spy on Buildings) to see their number of Inns/Wizard towers/Docks to figure out how many they can house. Remember those buildings could be destroyed while keeping the thieves and wizards, so SoB is not accurate. Screen is.
+When you have the SoB, check for Walls. If you forget to check your attack may fail.
+
+
+
+
+4. 
+
+Check the season! Attacking in winter must be very carefully planned out. The opponent has a 5% defense bonus. Also 20% additional attack time will happen in winter. (10 ticks will be 12). However Spring comes right after Winter, which means 10% more attack and the defense bonus is gone. So Spring is attackers paradise. You've been warned!
+
+
+
+
+5. 
+
+When your army is attacking, you get bonus gold proportional to the amount of units you send out. If you are absolutely sure you are safe, there is no harm in sending a bit more, to get a bigger bonus gold income. Haste/enrage should also be determined this way. You usually only have enough wizards to cast one of them. If you don't need your army to be back that early, might as well cast enrage or enchanted land to make your bonus even higher.
+
+
+
+
+6. 
+
+Have a look at what you have. Decide what you are going to do and plan ahead. If I have 40k trolls and I'm in a war, I'd most likely to massacre as much as possible. With support like fireworks from KD mates, I can split my army into 2 groups of 20k – one group massacres, and when one is about to get home (1 tick left) you massacre again with the other 20k a few seconds before your first army gets back. This is just an example of saving a tick or two. Improvising and making your own techniques is essential.
+
+
+
+
+7. 
+
+Don't panic when overcome with attacks. Sending everything out is likely to bring in a massacre that will chase you off all your acres. (Remember massacre damage depends more on the defending army. If you have nothing to defend your acres you will lose a lot more than the standard 10% in a normal attack).
+
+
+
+
+8. 
+
+Dispel before you attack! If the target has 2 Physical Shields, he will have about 21% more defense. If they see you fail thievery ops, and expect an attack, they surely will cast one.
+
+
+
+
+9. 
+
+Don't forget to add 5% defense when calculating because of the 5% uncertainty in a spy report.

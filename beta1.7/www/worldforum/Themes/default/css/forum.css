@@ -1,0 +1,408 @@
+/* ************************************* */
+/* styles from BoardIndex.template       */
+/* ************************************* */
+
+p#stats
+{
+	text-align: right;
+}
+h3#newsfader
+{
+	font-size: 1em;
+}
+#smfNewsFader span
+{
+	font-weight: bold;
+}
+#smfFadeScroller
+{
+	padding: 2em;
+	font-size: 1em;
+	text-align: center;
+}
+.categoryframe
+{
+	margin-top: 0.4em;
+}
+.categoryframe h3
+{
+	margin: 0;
+}
+table.boardsframe
+{
+	width: 100%;
+}
+table.boardsframe td.icon
+{
+	text-align: center;
+	padding: 0.5em;
+	width: 6%;
+}
+table.boardsframe td.info
+{
+	width: 60%;
+	padding: 0;
+}
+table.boardsframe td.info h4
+{
+	padding: 0.4em 0.4em 0 0.4em;
+	margin: 0;
+}
+table.boardsframe td.info p
+{
+	padding: 0 0.4em 0.5em 0.4em;
+	margin: 0;
+}
+table.boardsframe td.info p.moderators
+{
+}
+table.boardsframe td.stats
+{
+	width: 8%;
+	vertical-align: middle;
+	text-align: center;
+}
+table.boardsframe td.lastpost
+{
+	width: 20%;
+	vertical-align: top;
+	padding: 0.5em;
+}
+table.boardsframe p.children
+{
+	border-top: solid 1px #ADADAD;
+	margin: 0;
+	padding: 0.5em;
+}
+#posticons
+{
+	clear: both;
+	width: 100%;
+}
+#posticons .buttonlist
+{
+	margin-right: 1em;
+	float: right;
+}
+#infocenterframe
+{
+	margin-top: 2em;
+	clear: both;
+}
+/* each section in infocenter has this class */
+.infocenter_section
+{
+	clear: both;
+}
+.infocenter_section p.section
+{
+	display: block;
+	margin: 0;
+	width: 3%;
+	text-align: center;
+	float: left;
+	padding: 0.5em 0 0 0;
+}
+.infocenter_section div.sectionbody
+{
+	margin-left: 3%;
+	padding: 0.3em;
+	border-left: solid #a0a0a0 1px;
+	min-height: 25px;
+}
+/* recent posts - or just one recent post */
+dl#infocenter_recentposts
+{
+	float: left;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+dl#infocenter_recentposts dt
+{
+	clear: left;
+	float: left;
+	padding: 0.1em;
+	width: 68%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+dl#infocenter_recentposts dd
+{
+	clear: right;
+	float: right;
+	padding: 0.1em;
+	width: 25%;
+	text-align: right;
+	white-space: nowrap;
+	overflow: hidden;
+}
+/* login form */
+form#infocenter_login ul.horizlist label
+{
+	white-space: nowrap;
+	font-size: 90%;
+	font-weight: bold;
+}
+
+/* ************************************* */
+/* styles from MessageIndex.template     */
+/* ************************************* */
+#childboards table
+{
+	width: 100%;
+}
+.modbuttons
+{
+	clear: both;
+	width: 100%;
+}
+.modbuttons .buttonlist, .modbuttons .buttonlist_bottom
+{
+	margin-right: 1em;
+	float: right;
+}
+#messageindex td.icon1, #messageindex td.icon2
+{
+	text-align: center;
+	padding: 0.5em;
+	width: 5%;
+}
+#messageindex td.subject
+{
+	padding: 0.5em;
+}
+#messageindex td.starter
+{
+	text-align: center;
+	padding: 0.5em;
+	width: 14%;
+}
+#messageindex td.replies
+{
+	text-align: center;
+	padding: 0.5em;
+	width: 4%;
+}
+#messageindex td.views
+{
+	text-align: center;
+	padding: 0.5em;
+	width: 4%;
+}
+#messageindex td.lastpost
+{
+	padding: 0.5em;
+	width: 22%;
+}
+#messageindex td.moderation
+{
+	text-align: center;
+	padding: 0.5em;
+	width: 4%;
+}
+#topic_icons p
+{
+	display: block;
+	padding: 0.5em 0.5em 0.1em 0.5em;
+	margin: 0;
+	border-bottom: none;
+}
+#message_index_jump_to
+{
+	margin: 2em 4em 0 2em;
+}
+
+/* ************************************* */
+/* styles from Display.template          */
+/* ************************************* */
+#events .post
+{
+	padding: 1em;
+}
+#moderationbuttons
+{
+	margin-left: 0.5em;
+}
+#postbuttons .nav, #postbuttons_lower .nav
+{
+	margin: 0.5em 0.5em 0 0;
+	text-align: right;
+}
+#postbuttons_lower .nav
+{
+	margin: 0em 0.5em 0.5em 0;
+}
+#postbuttons, #postbuttons_lower
+{
+	text-align: right;
+}
+
+/* Poll question */
+h4#pollquestion
+{
+	padding: 1em 0 1em 2em;
+}
+
+/* Poll vote options */
+#poll_options ul.options
+{
+	border-top: 1px solid #696969;
+	padding: 1em 2.5em 0 2em;
+	margin: 0 0 1em 0;
+}
+#poll_options div.submitbutton
+{
+	clear: both;
+	padding: 0 0 1em 2em;
+}
+
+#poll_options div.submitbutton.border
+{
+	border-bottom: 1px solid #696969;
+	margin: 0 0 1em 0;
+}
+
+/* Poll results */
+#poll_options dl.options
+{
+	border: solid #696969;
+	border-width: 1px 0;
+	padding: 1em 2.5em 0 2em;
+	margin: 0 0 1em 0;
+}
+#poll_options dl.options dt.voted
+{
+	font-weight: bold;
+}
+#poll_options dl.options dd
+{
+	margin: 0.5em 0 1em 0;
+}
+
+/* Poll notices */
+#poll_options p
+{
+	margin: 0 1.5em 0.2em 1.5em;
+	padding: 0 0.5em 0.5em 0.5em;
+}
+
+div#pollmoderation
+{
+	margin: -1em 0 0 2em;
+	padding: 0;
+}
+
+.approve_post
+{
+	margin: 2ex;
+	padding: 1ex;
+	border: 2px dashed #cc3344;
+	color: black;
+	font-weight: bold;
+}
+#forumposts h3.catbg3
+{
+	font-weight: normal;
+	padding: 0.4em;
+}
+#forumposts h3.catbg3 img
+{
+	vertical-align: middle;
+}
+#forumposts h3.catbg3 span
+{
+	padding-left: 2%;
+}
+#forumposts h3.catbg3 span#top_subject
+{
+	padding-left: 9%;
+}
+.poster
+{
+	width: 15%;
+}
+.postarea
+{
+	margin-left: 16%;
+}
+.messageicon
+{
+	float: left;
+	margin: 0 0.5em 0.5em 0;
+}
+div.postarea .keyinfo
+{
+	float: left;
+	width: 60%;
+}
+ul.postingbuttons
+{
+	float: right;
+	padding-right: 1em;
+	text-align: right;
+}
+ul.postingbuttons li
+{
+	display: inline;
+}
+.modifybutton
+{
+	float: right;
+}
+.attachments
+{
+	clear: right;
+	padding-top: 1em;
+}
+.postfooter
+{
+	margin-left: 16%;
+}
+.topborder
+{
+	border-top: solid 1px #bbb;
+}
+.moderatorbar
+{
+	clear: right;
+	margin: 1em 0 0 16%;
+}
+#quickReplyOptions div
+{
+	text-align: center;
+	border-left: solid 1px #aaa;
+}
+
+#quickReplyOptions #quickReplyWarning
+{
+	border: none;
+	text-align: left;
+	margin: 0;
+	width: 25%;
+	float: left;
+}
+#quickReplyOptions #quickReplyContent
+{
+	float: left;
+	width: 74%;
+}
+
+#quickReplyOptions #quickReplyContent textarea, #quickReplyOptions #quickReplyContent input
+{
+	margin-bottom: .5em;
+}
+
+/* ************************************* */
+/* styles from Recent.template           */
+/* ************************************* */
+.readbuttons
+{
+	clear: both;
+	width: 100%;
+}
+.readbuttons .buttonlist, .readbuttons .buttonlist_bottom
+{
+	margin-right: 1em;
+	float: right;
+}
