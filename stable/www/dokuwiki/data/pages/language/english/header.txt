@@ -1,0 +1,8 @@
+<?php
+$mylanguage["head_title"] = 'The Kingdoms of Chaos';
+$mylanguage['head_description'] = 'A massively played multiplayer online strategy game (MMOG). You compete with several other players from all over the world to create the most powerful province and to build the most powerful kingdom.';
+$mylanguage['head_keywords'] = 'game, multiplayer, friends, war, roleplay, strategy';
+$mylanguage['head_generator'] = 'The Kingdoms of Chaos Administration Team';
+$mylanguage['logo'] = "TKOC Logo";
+
+?>

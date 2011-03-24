@@ -1,0 +1,201 @@
+<!--
+/*******************************************************************************
+    The Kingdoms of Chaos - An online browser text game - <http://www.tkoc.net>
+    Copyright (C) 2011 - Administrators of The Kingdoms of Chaos
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Contact Information:
+	Petros Karipidis  - petros@rufunka.com - <http://www.rufunka.com/>
+	Anastasios Nistas - tasosos@gmail.com  - <http://tasos.pavta.com/>
+	
+	Other Information
+	=================
+	The exact Author of each source file should be specified after this license
+	notice. If not specified then the "Current Administrators" found at
+	<http://www.tkoc.net/about.php> are considered the Authors of the source
+	file.
+
+	As stated at the License Section 5.d: "If the work has interactive user
+	interfaces, each must display Appropriate Legal Notices; however, if the
+	Program has interactive interfaces that do not display Appropriate Legal
+	Notices, your work need not make them do so.", we require you give
+	credits at the appropriate section of your interface.
+********************************************************************************/
+-->
+<?php
+require_once ("scripts/globals.inc.php");
+require_once ($GLOBALS['path_www_scripts'] . "all.inc.php");
+require_once ($GLOBALS['path_www_scripts'] . "Database.class.inc.php");
+require_once ($GLOBALS['path_www_scripts'] . "User.class.inc.php");
+require_once ($GLOBALS['path_www_scripts'] . "isLoggedOn.inc.php");
+require_once ($GLOBALS['path_www_scripts'] . "gameheader.inc.php");
+
+if ($user != false && $province != false ) {
+	if (isset($_COOKIE['showmenu']) && $_COOKIE['showmenu']=='true')
+	{	
+		// just to make the menu on the right side correcto :)
+		require_once($GLOBALS['path_www_scripts'] . "login.php");
+		die();
+	}
+	require_once($GLOBALS['path_www_scripts'] . "showProvince.php");
+	die();
+} else {
+	require("header.php");
+}
+?>
+
+<table BGCOLOR="#86846D" width=800 HEIGHT=200 ALIGN="CENTER" CELLSPACING=0 background="img/loginback.jpg">
+	<tr>
+		<td ALIGN=CENTRE class="TLRB">
+
+
+<?php 
+
+if (isset($_GET['pass']) && ($_GET['pass'] == 'yes')) {
+
+echo "  <form method=POST ACTION='".$GLOBALS['path_domain_script']."resendpw.php'><center>";
+
+echo "
+   <table ALIGN=CENTER>
+	<tr>
+	<td colspan='2'>";
+
+if (isset($_GET['email'])) {
+
+if (isset($_GET['fail']) && ($_GET['fail']=='no')) {
+		echo "Your password has been sent to your email.<br>";
+		echo "<br><a href='".$GLOBALS['path_domain_root']."login.html' class='rep'><b>Click here to login</b></a>";
+}
+
+
+
+} else {
+
+if (isset($_GET['fail']) && $_GET['fail']== 'yes') {
+		echo "<b>The username you entered is not registred or you mispelled it.</b><br>";
+}
+
+
+echo "
+
+	<b>Enter your username or email below to recieve your password by mail.</b></td>
+	</tr>
+
+      <tr>
+         <td>
+                <b>Username:</b>
+                 </td>
+                 <td align='left'>
+		 <input type=text size=17 name=user tabindex=1 style='background-color: #000000; color: #FFEECC; font-family: Tahoma; font-weight: bold; border-color: #5B5A56'>
+
+                 </td>
+          </tr>
+        <tr><td>&nbsp;</td>
+        <td>
+		<input type=submit name=submit tabindex=2 value='Send password' style='background-color: #000000; color: #FFEECC; font-family: Tahoma; font-weight: bold; border-color: #5B5A56'>
+                </td>
+        </tr>
+   </table>
+
+";
+}
+
+}else {
+
+echo "  <form method=POST ACTION='".$GLOBALS['path_domain_script']."login.php'><center>";
+echo "   </center>
+   <table ALIGN=CENTER>
+      <tr>
+         <td>
+
+		 <b>Username:</b>
+ 		 </td>
+  		 <td>
+		 <input type=text size=10 name=username tabindex=1 style='background-color: #000000; color: #FFEECC; font-family: Tahoma; font-weight: bold; border-color: #5B5A56'>
+		 </td>
+	  </tr>
+	  <tr>
+		 <td>
+		<b>Password:</b>
+		</td>
+		<td>
+		<input type=password size=10 name=password tabindex=2 style='background-color: #000000; color: #FFEECC; font-family: Tahoma; font-weight: bold; border-color: #5B5A56'> 
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<b>old style menu</b>
+		</td>
+		<td>
+		<input type=checkbox name=oldmenu tabindex=3 style='background-color: #000000; color: #FFEECC; font-family: Tahoma; font-weight: bold; border-color: #5B5A56'> 
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<b>I have trouble logging in...</b>
+		</td>
+		<td>
+		<input type=checkbox name=nocookie tabindex=3 style='background-color: #000000; color: #FFEECC; font-family: Tahoma; font-weight: bold; border-color: #5B5A56'> 
+		</td>
+	</tr>
+
+	<tr>
+    	<td colspan=2 align='center'>
+		<input type=submit name=submit value='Login' tabindex=4 style='background-color: #000000; color: #FFEECC; font-family: Tahoma; font-weight: bold; border-color: #5B5A56'>
+		</td>
+	</tr>
+   </table>
+<center><font color=white size=-1>";
+
+echo "Forgot your password? <a href='".$GLOBALS['path_domain_root']."login.html?pass=yes' class='rep'><b>Click here.</b></a><br>";
+
+
+
+
+$config = $GLOBALS['config'];
+if (/*$config['status']=='Running'*/ true) {
+	$database->query("select loginId from Login where (UNIX_TIMESTAMP()-UNIX_TIMESTAMP(timestamp))<(3600) AND loggedon='Y' group by pID"); // last 10 minutes
+	$num = $database->numRows();
+//	$database->query("select loginId from Login where (UNIX_TIMESTAMP()-UNIX_TIMESTAMP(timestamp))<(3600*24*7) group by pID");  // last 10 minutes
+//	$total= $database->numRows();
+} else {
+	$database->query("Select pID from Province where kiID>0");
+	$num = $total = $database->numRows();
+}
+if (isset($config['status'])) {
+	if ($config['status']=='Running')
+		echo "Game status: <b>$config[status]</b> with <b>$num</b> users online NOW.";
+	else if ($config['status']=='Pause')
+		echo "Game status: <b>$config[status]</b> with <b>$num</b> users online NOW. Game will start in $config[pause] hours";
+	else
+		echo "Game status: <b>$config[status]</b> with <b>$num</b> users online NOW. Game will open for signups in $config[pause] hours";
+		
+	echo "<br>The server is running in <b>". $config['serverMode'] ."</b> mode";
+} else {
+	echo "Game status: <b><font color=red>GAME IS DOWN (Database failure)</font></b>";
+}
+$database->query("select SEC_TO_TIME((5*60*runInterval)-(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(lastTickTime))) as nextTick from Config");
+$nextTick = $database->fetchArray();
+echo "<br>Next update will be in: <b>$nextTick[nextTick]</b> hours";
+
+}
+
+?>
+</font></center>
+
+</form>
+</td>
+</tr>
+<?php require($GLOBALS['path_domain_root']."footer.php"); echo $GLOBALS['path_domain_root']."footer.php";?>

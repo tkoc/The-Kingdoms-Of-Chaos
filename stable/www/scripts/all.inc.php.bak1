@@ -1,0 +1,503 @@
+<?php
+/*******************************************************************************
+    The Kingdoms of Chaos - An online browser text game - <http://www.tkoc.net>
+    Copyright (C) 2011 - Administrators of The Kingdoms of Chaos
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Contact Information:
+	Petros Karipidis  - petros@rufunka.com - <http://www.rufunka.com/>
+	Anastasios Nistas - tasosos@gmail.com  - <http://tasos.pavta.com/>
+	
+	Other Information
+	=================
+	The exact Author of each source file should be specified after this license
+	notice. If not specified then the "Current Administrators" found at
+	<http://www.tkoc.net/about.php> are considered the Authors of the source
+	file.
+
+	As stated at the License Section 5.d: "If the work has interactive user
+	interfaces, each must display Appropriate Legal Notices; however, if the
+	Program has interactive interfaces that do not display Appropriate Legal
+	Notices, your work need not make them do so.", we require you give
+	credits at the appropriate section of your interface.
+********************************************************************************/
+?>
+<?php
+//**********************************************************************
+//* all.inc.php
+//*
+//* This should be included in every script.
+//*
+//* - This setup a database object and put it in global
+//* - Will load the game config and put it in global
+//* - includes FU (frequently used) functions
+//**********************************************************************
+// setup error control
+//ini_set('error_reporting', 0 );
+//ini_set('log_errors', 0 );
+//ini_set("display_errors", "1");
+//set_magic_quotes_runtime(0);
+// tata!
+#header("Expires: Mon, 03 Mar 2003 00:00:00 GMT");
+#header("Last Modifies:" . gmdate("D, d M Y H:i:s") . "GMT");
+#header("Cache-Control: no-cahce, must-revalidate");
+#header("Pragma: no-cache");
+
+// first, set up the global variables.
+require_once ('globals.inc.php');
+require_once ($base_www."worldforum/SSI.php");
+// setup db object
+$DBLOGIN = $dbusername;
+$DBPASSW = $dbpassword;
+$DBHOST  = $dbhost;
+$DBDATABASE = $dbname;
+require_once ($GLOBALS['path_www_scripts'] . 'Database.class.inc.php');
+$database = new Database($DBLOGIN,$DBPASSW,$DBHOST,$DBDATABASE);
+$GLOBALS['database'] = &$database;
+$GLOBALS['database']->connect();
+
+require_once ($GLOBALS['path_includes']."database.php");
+$GLOBALS['db'] = $db = new myDatabase ($dbhost,$dbusername,$dbpassword, $dbname);
+
+
+
+/*
+
+// cookie hack workaround..
+$GLOBALS['fcid'] = "?dummy=dummy";
+$GLOBALS['forum_fcid'] = "";
+$GLOBALS['fcid_post'] = "";
+if (isset($_REQUEST['fcid']))
+{
+	$GLOBALS['fcid'] = "?fcid=" . $_REQUEST['fcid'] . "&nocookie=true";
+	$GLOBALS['forum_fcid'] = "&fcid=" . $_REQUEST['fcid'] . "&nocookie=true";
+	$GLOBALS['fcid_post'] = '<input type=hidden name=fcid value="' .$_REQUEST['fcid'] . '"><input type=hidden name=nocookie value=true>';
+}
+
+if (isset($GLOBALS['script_mode']) && $GLOBALS['script_mode']=='web')
+{
+// ban array
+// type ip => (ip, cookie, reason)
+// i know the ip is listed twice... but this is what you get when you do a quick ugly hack to block a user.
+// if cookie is empty, everything from that ip will be blocked.
+$banlist = array ('203.164.135.248' => array('ip'=>'203.164.135.248','cookie'=>'tkoc:579289fe429afa01bae6e704479','reason'=>'Get a life'),
+		'203.43.158.13'   => array('ip'=>'203.43.158.13','cookie'=>'tkoc:52db588a819622b9059f92897f5','reason'=>'Get a life'),
+		'129.118.28.154'   => array('ip'=>'129.118.28.154','cookie'=>'','reason'=>'You asked for it, and you got it'),
+		'217.18.198.178' => array('ip'=>'217.18.198.178','cookie'=>'','reason'=>'Spamming'),
+		'198.82.92.76'   => array('ip'=>'198.82.92.76','cookie'=>'','reason'=>'You should start to read posts better before you answer or comment them')
+);
+
+$banRange = array( '10.0.0.x' => array('ip'=>'10.0.0', 'cookie'=>'', 'reason'=>'Illegal address range')
+
+);
+// bans.. TODO database.
+$ip = getenv("REMOTE_ADDR");
+if (!isset($ip)) $ip = "server";
+$cookie = (isset($_COOKIE['tkocSMF'])) ? $_COOKIE['tkocSMF'] : "";
+if (array_key_exists($ip,$banlist))
+{
+	reset($banlist);
+	foreach ($banlist as $e)
+	{
+		if ($e['ip'] == $ip)
+		{
+			if ((strlen($e['cookie'])>1) && ($cookie == $e['cookie']))
+			{
+				echo "I'm sorry, but you have been banned from this game<br>";
+				echo "Reason: " . $e['reason'];
+				die;
+			}
+			if (strlen($e['cookie'])==0)
+			{
+				echo "I'm sorry, but you have been banned from this game<br>";
+				echo "Reason: " . $e['reason'];
+				die;
+			}
+		
+		}
+	}
+}
+
+	reset($banRange);
+	foreach ($banRange as $e)
+	{
+		if ( (strpos($ip, $e['ip']) !== false) && (strpos($ip, $e['ip']) == 0) )
+		{
+			if ((strlen($e['cookie'])>1) && ($cookie == $e['cookie']))
+			{
+				echo "I'm sorry but you have been banned from this game<br>";
+				echo "Reason: " . $e['reason'];
+				die;
+			}
+			if (strlen($e['cookie'])==0)
+			{
+				echo "I'm sorry but you have been banned from this game<br>";
+				echo "Reason: " . $e['reason'];
+				die;
+			}
+		
+		}
+	}
+
+
+} // end if web request*/
+
+// load game-config
+$database->query("SELECT * from Config");
+$config = $database->fetchArray();
+$GLOBALS['config'] = &$config;
+
+
+function GetStatLinks()
+{
+$body = "";                      
+   $body .= "   <table frame='box' border='0' width='60%'>";
+   $body .= "      <tr>";
+   $body .=  "        <td class='rep1' width='33%' align='center'><a href='report.php' class='rep'><b>Search Kingdoms</b></a></td>";
+   $body .=  "        <td class='rep1' width='33%' align='center'><a href='top50.php' class='rep'><b>Provinces Ranking</b></a></td>";
+   $body .=  "        <td class='rep1' width='33%' align='center'><a href='topKing.php' class='rep'><b>Kingdoms Ranking</b></a></td>";
+
+   $body .= "      </tr>";
+   $body .= "   </table>";
+return $body;
+}
+
+
+// Networth definitions..
+
+define("NW_GOLD",0.001);
+define("NW_FOOD",0.0005);
+define("NW_METAL",0.001);
+define("NW_PEASANTS",1.0);
+// army
+define("NW_SOLDIER",2.0);
+define("NW_OFF",4.0);
+define("NW_DEF",4.0);
+define("NW_ELITE",8.0);
+define("NW_THIEVES",5.0);
+define("NW_MAGES",5.0);
+//buildings
+define("NW_ACRE",15.0);
+define("NW_BUILDING",15.0);
+
+// sciences
+define("NW_SCIENCE",1000.0);
+
+//Startvalues for era
+
+$STARTYEAR = 2003;
+$STARTMONTH = 4;
+$STARTDAY = 9;
+$STARTHOUR = 0;
+$STARTMIN = 0;
+
+
+function writeChaosNumber ($num)
+{
+	if (is_numeric($num))
+		return 	number_format($num,0,' ',',');
+	else return $num;
+}
+
+function DebugOut($text)
+{
+	if ((isset($GLOBALS['game_debug']) && $GLOBALS['game_debug'] == true))
+	{
+		echo "<b>Debug:</b>".$text;
+	}
+}
+function Debug($text)
+{
+	return DebugOut($text);
+}
+
+
+//**********************************************************************
+//*   templateDisplay($province, $htmlBody)
+//*   
+//*   takes the province object for the info at the top of the page
+//*   and the string htmlBody that contains the body of the page
+//* 	 added $forum as a little hack to display form correct.
+//**********************************************************************
+//  $left="<img src='../img/space.gif'</img>"
+function templateDisplay($province, $htmlBody , $cornerpic="../img/space.gif", $left="",$forum=false ) {
+
+// so that networth be refreshed on every page
+$province->setNetworth();
+
+
+// hack by anderse!
+
+
+if ($province->vacationmode==true )
+{
+
+// allow some pages
+switch ($_SERVER['PHP_SELF'])
+{
+	// allow these pages
+	case '/login.html':
+	case '/scripts/showProvince.php':
+	case '/scripts/report.php':
+	case '/scripts/kingdomForum.php':
+	case '/scripts/message.php':
+	case '/scripts/showKingdomNews.php':
+	
+	// TODO: evolve.
+	case 'http://www.tkoc.net/scripts/showProvince.php':
+	break;
+
+
+	default:
+	{
+		//echo "page=" . $_SERVER['PHP_SELF'] . "<br>";
+		$info = "";  
+		if ( ($province->vacationmode==true) && ($province->vacationTicks > 48))
+		{
+		        $info .= "You can cancel vacation mode by going to main page and pressing the cancel button. Your province will then resume as normal.<br>";
+//		        $info .= "<form action=".$_SERVER['PHP_SELF']." method=POST>";
+//		        $info .= "<input type=submit name='Cancel' value='Cancel'>";
+//		        $info .= "</form>";
+		}
+
+		 $htmlBody = '	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	You cannot do anything here while in vacation mode.<br>'. $info;
+	} // default
+} // switch
+} // if
+	global $config;
+	
+	require_once($GLOBALS['path_www_scripts']."ChaosTime.class.inc.php");
+	$thisTime = new ChaosTime($config['ticks']);
+	$era = $thisTime->getEra();
+	$year = $thisTime->getYear();
+	$month = $thisTime->getMonth();
+	$day = $thisTime->getDay();
+	
+	$showmenu=true;
+	
+	if ( ($GLOBALS['config']['status'] == 'Ended') )
+	{
+		if (intval($GLOBALS['user']->access) & $GLOBALS['constants']->USER_ADMIN)
+		{
+			$GLOBALS['game_debug_data'] .= "<br>Special Endage-privilege granted due to admin access";
+		} 
+		else // not allowed to be logged in after age end.
+		{
+  die ('
+  <html>
+  	<head>	
+   		<title>The Kingdoms of Chaos</title>	
+   <meta name="description" content="A massively played mutliplayer online strategy game.  Meet and make new friends and enemies in this warbased roleplaying game.">
+   <meta name="keywords" content="game, mutliplayer, friends, war, roleplay, strategy">		
+		<link rel=stylesheet href="http://www.tkoc.net/css/chaos.css" type="text/css">
+	</head>
+	<body bgcolor="#000000">
+	<table width=100%>
+	<tr>
+	<td>
+	<CENTER>
+  The next age is beeing updated!  please be patient.  Check out the forum for more information.<br><br>
+  <a href="http://www.tkoc.net"><img src="http://www.tkoc.net/img/logo/chaos_logo_main.jpg" border="0"></a>
+  </CENTER>
+  </td>
+  </tr>
+  </table>
+  </body>
+  </html>
+  ');
+  		}
+	}
+
+	echo '
+	<html>
+	<head>
+	<title>'.$GLOBALS['site_header'].'</title>
+	';	
+// hack
+// load another css if this is the forum
+if ($forum) {
+
+?>
+	<link rel=stylesheet href="css/chaos.css" type="text/css">
+<?php 
+
+} else {
+?>
+	<link rel=stylesheet href="../css/chaos.css" type="text/css">
+<?php
+}
+ ?>
+   <meta name="description" content="A massively played mutliplayer online strategy game.  Meet and make new friends and enemies in this warbased roleplaying game.">
+   <meta name="keywords" content="game, mutliplayer, friends, war, roleplay, strategy">		
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<?php
+if ($showmenu) {
+?>
+	<script language="JavaScript1.2">fcid = ""</script>
+	<script language="JavaScript1.2">dqm__codebase = "../javascript/" //script folder location</script>
+	<script language="JavaScript1.2" src="../javascript/game_menu_data.js"></script>
+	<script language="JavaScript1.2" src="../javascript/dqm_loader.js"></script>
+<?php
+}
+?>
+</head>
+
+<body bgcolor="#000000">
+<table border="0">
+<tr><td>
+<img src="<?php echo $cornerpic;?>" height="214" width="236">
+</td>
+<td align="RIGHT">
+	<br><br>
+	<table border="0"  width="631" height="98" cellspacing="0">
+	
+		<tr>
+		   <td class="disp1" width="116" height="100%" align="LEFT" background="../img/Statusbar_networth.gif">
+		   <strong>&nbsp;Networth<br>&nbsp;gc:<?php echo number_format($province->networth,0,' ',',');?>
+	       </td>
+		   
+		   <td class="disp1" width="116"  height="100%" align="LEFT" background="../img/Statusbar_food.gif">
+			  <strong>Food<br><?php echo number_format($province->food,0,' ',',');?> kg
+		   </td>
+
+		   <td class="disp1" width="116" height="100%" align="LEFT" background="../img/Statusbar_metal.gif">
+			     <strong>Metal<br><?php echo number_format($province->metal,0,' ',',');?> kg
+		   </td>
+
+		   <td class="disp1" width="116" height="100%" align="center" background="../img/Statusbar_peasants.gif">
+			     <strong>Peasants<br><?php echo number_format($province->peasants,0,' ',',');?>
+		   </td>
+
+		   <td class="disp1" width="167" height="100%" align="center" background="../img/Statusbar_gold.gif">
+			     <strong>Money<br><?php echo number_format($province->gold,0,' ',',');?> gc
+		   </td>
+	   
+		</tr>		
+
+	</table>
+	<?php
+	$GLOBALS['database']->query("select SEC_TO_TIME((5*60*runInterval)-(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(lastTickTime))) as nextTick from Config");
+	$nextTick = $GLOBALS['database']->fetchArray();
+	echo "
+	<div style='margin-bottom:9px; margin-top:9px; font-size:11px; color:#FFEECC; width:665px;'>
+		<span style='float:left;'>$day day of the $month Month of the $year year in the $era era</span>
+		<span>Next tick in: <b>$nextTick[nextTick]</b> hours</span>
+	</div>";
+	?>
+
+<?php
+if ($showmenu) {
+?>
+<CENTER>
+<table BGCOLOR="#000000" cellspacing="0">
+<tr>
+<td class="TLB"><img src="../img/Button_home.gif" width="130" height="24" name="menu0" id="menu0" onMouseOver="showMenu(event)" onMouseOut="hideMenu(event)"></td>
+<td class="TLB"><img src="../img/Button_province.gif" width="130" height="24" name="menu1" id="menu1" onMouseOver="showMenu(event)" onMouseOut="hideMenu(event)"></td>
+<td class="TLB"><img src="../img/Button_construct.gif" width="130" height="24" name="menu2" id="menu2" onMouseOver="showMenu(event)" onMouseOut="hideMenu(event)"></td>
+<td class="TLB"><img src="../img/Button_relations.gif" width="130" height="24" name="menu3" id="menu3" onMouseOver="showMenu(event)" onMouseOut="hideMenu(event)"></td>
+<td class="TLRB"><img src="../img/Button_operations.gif" width="130" height="24" name="menu4" id="menu4" onMouseOver="showMenu(event)" onMouseOut="hideMenu(event)"></td>
+</tr>
+</table>
+</CENTER>
+<?php
+}
+?>
+</td></tr>
+</table>	
+<table border="0">
+<tr>
+	<td width="150" height="600" valign="top">
+	<table BGCOLOR="#000000" cellspacing="0">
+	<td><td class="TLR">
+	<?php
+	/*if ($GLOBALS['context']['user']['is_logged']) {
+		//require($GLOBALS['path_www']."worldforum/SSI.php"); 
+		echo '<td><td class="TLR">'.ssi_logout($GLOBALS['path_domain_root']."index.html").'</td></tr>';
+	}*/
+	
+	if ($GLOBALS['context']['user']['is_logged']) {
+		echo '<tr> '.ssi_logout($GLOBALS['path_domain_root']."index.html").'</tr>';
+	}
+	
+	?>
+	</td></tr>
+	<!--<td><td class="TLR"><img src="../img/Button_small_logout.gif" width="92" height="21" name="menu5" id="menu5" onMouseOver="showMenu(event)" onMouseOut="hideMenu(event)"></td></tr>-->
+	<td><td class="TLR"><img src="../img/Button_small_guide.gif" width="92" height="16" name="menu6" id="menu6" onMouseOver="showMenu(event)" onMouseOut="hideMenu(event)"></td></tr>
+	<td><td class="TLR"><img src="../img/Button_small_tutorial.gif" width="92" height="16" name="menu7" id="menu7" onMouseOver="showMenu(event)" onMouseOut="hideMenu(event)"></td></tr>
+	<td><td class="TLRB"><img src="../img/Button_small_preferences.gif" width="92" height="16" name="menu8" id="menu8" onMouseOver="showMenu(event)" onMouseOut="hideMenu(event)"></td></tr>
+	</table>
+	<?php
+	
+
+	/*$GLOBALS['database']->query("select SEC_TO_TIME((5*60*runInterval)-(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(lastTickTime))) as nextTick from Config");
+	$nextTick = $GLOBALS['database']->fetchArray();
+	echo "<font style='color:white; font-size:11px;'><br>Next tick in: <b>$nextTick[nextTick]</b> hours</font><br/>";
+	
+	echo "<font style='color=white; font-size:11px;'>$day/$month/$year/$era</font>";*/
+	?>
+	<?php 
+	if (strlen($left) > 0)	
+		echo $left;
+//	else
+//		require_once($GLOBALS['path_domain_ads'] . "ad_ingame_left_menu.php");	
+		?>
+	</td>
+	<td>&nbsp;
+	
+	</td>
+	<td valign="top" width="100%">
+	<?php echo $htmlBody; ?>
+	</td>
+</tr>
+</table>
+<?php
+if ((isset($GLOBALS['game_debug']) && $GLOBALS['game_debug'] == true) && (intval($GLOBALS['user']->access) & $GLOBALS['constants']->USER_ADMIN))
+{
+	echo '<pre><font style="font-family: monospace; font-size: 12px;" color="#FFFFFF">';
+//	echo '<table width="100%" background=white><TR><TD>'
+	echo 'Game-Debug directive turned on: (Only admins will see this)<br>';
+	// general game stuff.
+	echo '<br>General Game debug data:<br>';
+	echo "-----------------------------------------------------<br>";
+	echo "Script execution time: " . (clock() - $GLOBALS['game_start_clock']) . "<br>";
+if (isset($GLOBALS['game_queries_required']))
+	echo "Required queries:      " . $GLOBALS['game_queries_required'] . "<br>";
+else
+	echo "Required queries:      " ."No breakpoint set" . "<br>";
+if (isset($GLOBALS['game_fetches_required']))
+	echo "Required fetches:      " . $GLOBALS['game_fetches_required'] . "<br>";
+else
+	echo "Required fetches:      " ."No breakpoint set" . "<br>";
+// below is php 5.0 :(
+//	echo "Memory usage:          " .  memory_get_usage() . "<br>";
+	// database data:
+	$GLOBALS['database']->showDebugData();
+	$GLOBALS['user']->showDebugData();
+	$GLOBALS['province']->showDebugData();
+	// end
+	echo '<br>End of debug.  Dumping extra debug buffer:<br>';
+	echo $GLOBALS['game_debug_data'];
+	
+	echo '</font></pre>';
+}
+
+//print_r($GLOBALS);
+?>
+</body>
+</html>
+
+<?php 
+}
+?>

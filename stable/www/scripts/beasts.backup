@@ -1,0 +1,260 @@
+<?php
+//**********************************************************************
+//* beasts.php
+//*
+//*	Shows and create beasts
+//* 
+//* Author: Anders Elton
+//*
+//*	History:
+//*		05.01.2007: Anders Elton.  Modified to fit new coding style
+//**********************************************************************
+
+require_once ("globals.inc.php");
+require_once ($GLOBALS['path_www_scripts'] . "all.inc.php");
+require_once ($GLOBALS['path_www_scripts'] . "Database.class.inc.php");
+require_once ($GLOBALS['path_www_scripts'] . "User.class.inc.php");
+require_once ($GLOBALS['path_www_scripts'] . "Province.class.inc.php");
+require_once ($GLOBALS['path_www_scripts'] . "requireLoggedOn.inc.php");
+require_once ($GLOBALS['path_www_scripts'] . "Beasts.class.inc.php");
+
+$html = "";
+
+$beasts = new Beasts($GLOBALS['database'],$GLOBALS['province']);
+
+if (isset($_REQUEST['step']))
+{
+	switch ($_REQUEST['step'])
+	{
+		case 'cancel':
+			$beast = $beasts->GetBeastFromID($_GET['beastID']);
+			
+			if ($beast->senderID == $GLOBALS['province']->getKiId())
+			{
+				$html .= "Canceled the " . $beast->GetName() . " project that targetted $beast->kingdomID";
+				if ($GLOBALS['province']->isKing())
+				{
+					$beasts->CancelProject($_GET['beastID']);
+					require_once($GLOBALS['path_www_scripts'] . "News.class.inc.php");
+		                        $news = new News($GLOBALS['database']);
+        		                $news->postNews("We have canceled our ". $beast->GetName() ." summon on kingdom #" . $beast->kingdomID  ,$beast->senderID, $news->SYMBOL_BEAST);
+
+				}
+			}
+			else
+			{
+				die("hack attempt.");
+			}
+
+
+
+		break;
+//		case 'tick': $beasts->doTick(); break;
+		case 'startproject':
+			if ($GLOBALS['province']->isKing())
+			{
+				if ($GLOBALS['province']->isProtected())
+				{
+					$html .= "Not allowed while in in protection!";
+					break;	
+				}
+				$beast = $beasts->StartBeastProject($_POST['selectKingdom'], $_POST['selectBeast']);
+				if ($beast != NULL)
+				{
+					require_once($GLOBALS['path_www_scripts'] . "News.class.inc.php");
+	                        	$news = new News($GLOBALS['database']);
+        	                	$news->postNews("We have started a ". $beast->GetName() ." summon on kingdom #" . $beast->kingdomID  ,$beast->senderID, $news->SYMBOL_BEAST);
+				}
+			}
+		break;
+
+		case 'Invest':
+			$beast = $beasts->GetBeastFromID($_POST['beastID']);
+			if ($beast->senderID == $GLOBALS['province']->getKiId())
+			{
+				$gold = max(0,$_POST['beastgold']);
+				$metal = max(0,$_POST['beastmetal']);
+				$food = max(0,$_POST['beastfood']);
+				if ($GLOBALS['province']->useResource($gold, $metal, $food))
+				{
+					$beast->InvestResource($gold, $metal, $food);
+				}
+			}
+			$beast = $beasts->GetBeastFromID($_POST['beastID']);
+			if ($beast->IsCompleted())
+			{
+				require_once($GLOBALS['path_www_scripts'] . "News.class.inc.php");
+	                        $news = new News($GLOBALS['database']);
+        	                $news->postNews("A ". $beast->GetName() ." from kingdom #" . $beast->senderID . " has begun ravaging our lands!" ,$beast->kingdomID, $news->SYMBOL_BEAST);
+        	                $news->postNews("Our ". $beast->GetName() ." has started attacking #" . $beast->kingdomID  ,$beast->senderID, $news->SYMBOL_BEAST);
+
+			}
+		break;
+		case 'attackbeast':
+			$province = $GLOBALS['province'];
+			$province->getMilitaryData();
+			$milUnits = $province->milObject->getMilitaryNotTr();
+			$sum_tw = 0; // thieves and wizards
+			$sum_all = 0; // attackpoints for all.
+			$sum_not_tw = 0;
+			$dead_count = 0;
+			foreach ($milUnits as $unit)
+        		{
+				if ($unit['num'] > 0)
+				{
+					$kill = 0;
+					if (isset($_POST[$unit['object']->getMilType()]) && $_POST[$unit['object']->getMilType()] > 0)
+					{
+						$sum_unit = $unit['object']->strength['attack'] > $unit['object']->strength['defense'] ? $unit['object']->strength['attack'] : $unit['object']->strength['defense'];
+						$sum_all += $sum_unit * min($_POST[$unit['object']->getMilType()], $unit['num']);
+						if ($unit['object']->getMilType()==$GLOBALS['MilitaryConst']->THIEVES || $unit['object']->getMilType()==$GLOBALS['MilitaryConst']->WIZARDS)
+						{
+							$sum_tw += $_POST[$unit['object']->getMilType()];
+						}
+						else
+						{
+							$sum_not_tw += $_POST[$unit['object']->getMilType()];
+						}
+					$kill = $_POST[$unit['object']->getMilType()] * rand(1,15) / 100;
+					$dead_count += $kill;
+					$province->milObject->killUnits($unit['object']->getMilType(),min($kill,1) );
+					}
+				}
+			}
+			$bonus = min($sum_tw, $sum_not_tw) * 2;
+			$sum_all += $bonus;
+//			echo "total sum: $sum_all, dead_count=$dead_count";
+			$damage = $beasts->AttackBeast($_POST['beastID'], $sum_all);
+//			$GLOBALS['database']->query("UPDATE Province set morale=morale+$damage where pID=". $GLOBALS['province']->getpID() ."");
+//			echo "damage $damage";
+			break;
+		default:
+			print_r($_REQUEST);
+	}
+}
+$html .= "<center><table width=800><tr><td>";
+
+$attackingBeasts = $beasts->GetEnemyBeasts();
+
+if (is_array($attackingBeasts))
+{
+	$html .= "Beasts are attacking our kingdom! To drive the beast back you can attack it with your troops.
+		Due to the special nature of beasts no bonuses will be taken into account when fighting these creatures of great power.  Fighting a beast does not require morale.  For each % of damage inflicted on the beast, a small portion of morale is gained.
+		<br>Units fight with their offensive or defensive power, whichever is highest.  Thieves and Wizards fight with the power of a specialist unit as long as it fight alongside a unit that is not a wizard or thief.
+		<br>&nbsp;<br>";
+	$html .= "<FORM ACTION=\"".$_SERVER['PHP_SELF']."\" method=POST>";
+	$checked="checked";
+	$html .= "<table>";
+	foreach ($attackingBeasts as $ab)
+	{
+		$html .= "<tr><td>";
+		$html .= "A " . $ab->GetName() . " from Kingdom " . $ab->senderID .  " is attacking us! ($ab->strength % strength)<br>";
+		$html .= "</td><td><input type=radio name=beastID value=" .$ab->beastID." $checked></td></tr>";
+		$checked="";
+	}
+	$html .= "</table>";
+	$province = $GLOBALS['province'];	
+	$province->getMilitaryData();
+        $milUnits = $province->milObject->getMilitaryNotTr();
+	$html .= "<table>";
+	foreach ($milUnits as $unit) 
+	{
+		if ($unit['num'] > 0)
+			$html .= "<tr><td>" . $unit['object']->GetName() . "</td><td><input class='form' type=text size=6 name=".$unit['object']->getMilType()." value=0></td></tr>";
+	}
+
+
+	$html .= "</table>
+	<input type=hidden name=step value=attackbeast>
+	<input type=submit class='form' name=asd value=\"attack beast\">
+	</FORM>";
+}
+else
+{
+	$html .= "No beasts are attacking us.<br>";
+}
+
+$ourBeasts = $beasts->GetOurBeasts();
+$canStartNewProject = true;
+$table = false;
+if (is_array($ourBeasts))
+{
+	foreach ($ourBeasts as $ob)
+	{
+		if ($ob->IsCompleted() == false)
+		{
+			if (!$table)
+			{
+				$html .= "<table border=1>";
+				$table= true;
+			}
+			$html .= "<tr><td><FORM ACTION=\"".$_SERVER['PHP_SELF']."\" method=POST>";
+			$html .= "<input type=hidden name=beastID value=".$ob->beastID.">";
+			$html .= "Our Kingdom has started to summon a " . $ob->GetName() . " on kingdom " . $ob->kingdomID;
+			if ($GLOBALS['province']->IsKing())
+			{
+				$html .= '&nbsp; <a href="'. $_SERVER['PHP_SELF'] ."?step=cancel&beastID=$ob->beastID" . '">cancel</a><br>';
+			}
+			else
+			{
+				$html .= "<br>";
+			}
+			$html .= writeChaosNumber($ob->goldLeft) . " gc, " . writeChaosNumber($ob->metalLeft) . " metal and " . writeChaosNumber($ob->foodLeft) . " food is still needed to complete the summoning.<br>&nbsp;<br>";
+			$html .= "Offer <input type=text name=beastgold value=0 SIZE=6 class=\"form\">gc, <input type=text name=beastmetal value=0 SIZE=6 class=\"form\"> metal and <input type=text name=beastfood value=0 SIZE=6 class=\"form\"> food";
+			$html .= "<input type=submit name=step value=\"Invest\" class=\"form\">";
+			$canStartNewProject = false;
+			$html .= "</td></tr></form>";
+		}
+	}
+	if ($table)
+		$html .= "</table>";
+}
+
+if ($GLOBALS['province']->isKing())
+{
+	require_once ($GLOBALS['path_www_scripts'] . "Kingdom.class.inc.php");
+	$html .= "&nbsp;<br>As king you have the power to summon beasts on kingdoms you are at war with. You can only summon one beast at a time<br>";
+	
+	$myKD = new Kingdom($GLOBALS['database'], $GLOBALS['province']->getkiID());
+	$myKD->loadKingdom();
+
+	$relationWar = $myKD->GetWarKingdoms();
+	if (is_array($relationWar) && count($relationWar) > 0 && $canStartNewProject)
+	{
+		$html .= '<FORM ACTION="'.$_SERVER['PHP_SELF'].'" method=POST>';
+		$html .= $GLOBALS['fcid_post'];
+		$html .= 'Select Kingdom:<select name=selectKingdom class="form">';
+		foreach ($relationWar as $item)
+		{
+        		$html .= "<option value=$item>$item</option>";
+		}
+		$html .= '</select>';
+
+		$html .= '<br>Select Beast:<select name=selectBeast class="form">';
+		foreach ($GLOBALS['beasts_static_data'] as $item)
+		{
+        		$html .= "<option value=" . $item->bID . ">" . $item->GetName() . "</option>";
+		}
+		$html .= '</select>
+		<br>
+		<input type=hidden name=step value=startproject>
+		<input type=submit name=asd value="Start project" class="form">
+		</form>';
+
+	}
+	else
+	{
+		if ($canStartNewProject == false)
+		{
+		}
+		else
+		{
+			$html .= "You are currently not at war with anyone.<br>";
+		}
+	}
+}
+
+$html .= "</td></tr></table></center>";
+
+templateDisplay($province,$html,"../img/Cornerpictures/Beast_picture.jpg");
+?>

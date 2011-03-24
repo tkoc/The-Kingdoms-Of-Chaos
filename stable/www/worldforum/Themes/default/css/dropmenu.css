@@ -1,0 +1,160 @@
+/* Container for the new admin menu */
+#adm_container
+{
+	float: left;
+	margin-left: 10px;
+	padding: 0 5px 0 5px;
+	background: url(../images/admintab_left.gif) no-repeat;
+}
+
+ul.admin_menu, ul.admin_menu li ul
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul.admin_menu
+{
+	background: url(../images/admintab_right.gif) top right no-repeat;
+}
+
+ul.admin_menu a
+{
+	text-decoration: none;
+}
+
+/* First layer of menu items */
+ul.admin_menu li
+{
+	position: relative;
+	float: left;
+	background: url(../images/admintab_back.gif) top right repeat-x;
+	padding-right: 4px;
+}
+
+ul.admin_menu li.last
+{
+	background: url(../images/admintab_right.gif) top right repeat-x;
+}
+
+ul.admin_menu li.chosen
+{
+	background: url(../images/admintab_active_left.gif) no-repeat;
+	padding: 0 0 0 6px;
+}
+
+ul.admin_menu li h4
+{
+	margin: 0;
+	padding: 7px 5px 3px 5px;
+	cursor: pointer;
+	font-weight: normal;
+	font-size: x-small;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+ul.admin_menu li.last.chosen h4
+{
+	background: url(../images/admintab_active_last.gif) top right no-repeat;
+	padding-right: 17px;
+}
+
+ul.admin_menu li.chosen h4
+{
+	background: url(../images/admintab_active_right.gif) top right no-repeat;
+	padding-right: 10px;
+}
+
+/* Second layer of menu items */
+ul.admin_menu li ul
+{
+	z-index: 90;
+	display: none;
+	position: absolute;
+	top: 100%;
+	/* IE6 needs a fixed width to prevent the menu from going haywire */
+	width: 19em;
+	border: solid 1px #808080;
+	border-left: solid 2px #6888A7;
+	background: #F8F8FB;
+}
+
+ul.admin_menu li.chosen ul
+{
+	margin: 0 0 0 -6px;
+}
+
+ul.admin_menu li ul li
+{
+	background: none;
+	width: 19em;
+	padding: 0;
+}
+
+ul.admin_menu li ul li a
+{
+	display: block;
+	padding: 0.5em 2em 0.5em 0.5em;
+	font-size: 90%;
+	text-decoration: none;
+	background: none;
+	color: #000 !important;
+}
+
+ul.admin_menu li ul li a.subsection
+{
+	background: url(../images/admin/subsection.gif) no-repeat 98% 50%;
+}
+
+ul.admin_menu li ul li a.chosen
+{
+	font-weight: bold;
+}
+
+ul.admin_menu li ul li a:hover
+{
+	background-color: #C8E2FB;
+	text-decoration: none;
+}
+
+ul.admin_menu li:hover ul, ul.admin_menu li.over ul
+{
+	display: block;
+}
+
+/* Third layer of menu items */
+ul.admin_menu li ul li ul, ul.admin_menu li ul li.over ul
+{
+	display: none;
+	position: absolute;
+	left: -999em;
+	top: 0;
+	border: solid 1px #A0A0A0;
+	border-left: solid 2px #6888A7;
+	background: #FFF;
+}
+
+ul.admin_menu li ul li:hover ul, ul.admin_menu li ul li.over ul
+{
+	display: block;
+	left: 18em;
+	margin: 0 0 0 1em;
+}
+
+/* the menu dropdown toggle image */
+div#menu_toggle
+{
+	float: right;
+	margin: 0 10px 0 0;
+	background: url('../images/mirrortab_first.gif') top left no-repeat;
+	padding: 0 0 0 7px;
+}
+
+div#menu_toggle a
+{
+	display: block;
+	background: #E5E5E8 url('../images/mirrortab_last.gif') top right no-repeat;
+	padding: 8px 12px 3px 6px;
+}

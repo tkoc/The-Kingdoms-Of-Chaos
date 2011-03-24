@@ -1,0 +1,238 @@
+/*******************************************************************************
+    The Kingdoms of Chaos - An online browser text game - <http://www.tkoc.net>
+    Copyright (C) 2011 - Administrators of The Kingdoms of Chaos
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Contact Information:
+	Petros Karipidis  - petros@rufunka.com - <http://www.rufunka.com/>
+	Anastasios Nistas - tasosos@gmail.com  - <http://tasos.pavta.com/>
+	
+	Other Information
+	=================
+	The exact Author of each source file should be specified after this license
+	notice. If not specified then the "Current Administrators" found at
+	<http://www.tkoc.net/about.php> are considered the Authors of the source
+	file.
+
+	As stated at the License Section 5.d: "If the work has interactive user
+	interfaces, each must display Appropriate Legal Notices; however, if the
+	Program has interactive interfaces that do not display Appropriate Legal
+	Notices, your work need not make them do so.", we require you give
+	credits at the appropriate section of your interface.
+********************************************************************************/
+BODY {
+
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 8pt; PADDING-BOTTOM: 0px; MARGIN: 0px; VERTICAL-ALIGN: middle; COLOR: #cacaca; PADDING-TOP: 0px; FONT-FAMILY: Verdana, Tahoma, Arial; BACKGROUND-COLOR: #000000; TEXT-ALIGN: center
+
+}
+
+.iefix {
+
+	VISIBILITY: hidden
+
+}
+
+.main {
+
+	FONT-SIZE: 8pt; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-COLOR: #000000; COLOR: #ffffff; BORDER-TOP-COLOR: #000000; FONT-FAMILY: Verdana, Tahoma, Arial; BACKGROUND-COLOR: #3f4e62; BORDER-RIGHT-COLOR: #000000
+
+}
+
+TD.listingheader {
+
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-COLOR: #000000; COLOR: #ffffff; BORDER-TOP-COLOR: #000000; FONT-FAMILY: Verdana, Tahoma, Arial; BACKGROUND-COLOR: #33465f; BORDER-RIGHT-COLOR: #000000
+
+}
+
+TD {
+
+	FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Tahoma, Arial
+
+}
+
+TD.menuheader {
+
+	PADDING-LEFT: 3px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ffffff; FONT-FAMILY: Verdana, Tahoma, Arial; BACKGROUND-COLOR: #28384f
+
+}
+
+TD.menuentry {
+	BACKGROUND-COLOR: #384d62; text-align:center;
+}
+
+TD.menuentry:hover {
+	BACKGROUND-COLOR: #425672; text-align:center;
+}
+
+TABLE {
+
+	COLOR: #cacaca; BACKGROUND-COLOR: transparent
+
+}
+
+.one {
+
+	FONT-SIZE: 8pt; COLOR: #dbdbdb; BACKGROUND-COLOR: #243956
+
+}
+
+.two {
+
+	FONT-SIZE: 8pt; COLOR: #dbdbdb; BACKGROUND-COLOR: #384c6a
+
+}
+
+.highlight {
+
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #dbdbdb; BACKGROUND-COLOR: #4c5e82
+
+}
+
+TD.body {
+
+	FONT-SIZE: 8pt; COLOR: #dbdbdb; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #1b2b40
+
+}
+
+.bold {
+
+	FONT-WEIGHT: bold
+
+}
+
+.italic {
+
+	FONT-STYLE: italic
+
+}
+
+.yellow {
+
+	COLOR: #ecd220
+
+}
+
+.red {
+
+	COLOR: #ff0000
+
+}
+
+.green {
+
+	COLOR: #00ff00
+
+}
+
+.white {
+
+	COLOR: #ffffff
+
+}
+
+.whitebar {
+
+	COLOR: #ffffff; BACKGROUND-COLOR: transparent
+
+}
+
+.elbigo {
+
+	FONT-SIZE: 10pt
+
+}
+
+A:link {
+
+	FONT-SIZE: 8pt; COLOR: #0091fb; FONT-FAMILY: Verdana, Tahoma, Arial; TEXT-DECORATION: none
+
+}
+
+A:visited {
+
+	FONT-SIZE: 8pt; COLOR: #0091fb; FONT-FAMILY: Verdana, Tahoma, Arial; TEXT-DECORATION: none
+
+}
+
+A:active {
+
+	FONT-SIZE: 8pt; COLOR: #5db9fd; FONT-FAMILY: Verdana, Tahoma, Arial; TEXT-DECORATION: underline
+
+}
+
+A:hover {
+
+	FONT-SIZE: 8pt; COLOR: #5db9fd; FONT-FAMILY: Verdana, Tahoma, Arial; TEXT-DECORATION: underline
+
+}
+
+INPUT {
+
+	BORDER-RIGHT: #464646 1px solid; BORDER-TOP: #464646 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 8pt; PADDING-BOTTOM: 2px; VERTICAL-ALIGN: middle; BORDER-LEFT: #464646 1px solid; COLOR: #cacaca; BORDER-BOTTOM: #464646 1px solid; BACKGROUND-COLOR: #161616
+
+}
+
+INPUT.button {
+
+	TEXT-ALIGN: center
+
+}
+
+INPUT.coord {
+
+	WIDTH: 20px
+
+}
+
+SELECT {
+
+	BORDER-RIGHT: #464646 1px solid; BORDER-TOP: #464646 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 8pt; PADDING-BOTTOM: 2px; VERTICAL-ALIGN: middle; BORDER-LEFT: #464646 1px solid; COLOR: #cacaca; BORDER-BOTTOM: #464646 1px solid; HEIGHT: 18px; BACKGROUND-COLOR: #161616; TEXT-ALIGN: left
+
+}
+
+TEXTAREA {
+
+	BORDER-RIGHT: #464646 1px solid; BORDER-TOP: #464646 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 8pt; VERTICAL-ALIGN: middle; BORDER-LEFT: #464646 1px solid; COLOR: #cacaca; BORDER-BOTTOM: #464646 1px solid; BACKGROUND-COLOR: #161616; TEXT-ALIGN: left
+
+}
+
+.qlinput {
+
+	BORDER-RIGHT: #161616 1px solid; BORDER-TOP: #161616 1px solid; FONT-SIZE: 7pt; BORDER-LEFT: #161616 1px solid; WIDTH: 30px; COLOR: #cacaca; BORDER-BOTTOM: #161616 1px solid; HEIGHT: 18px; BACKGROUND-COLOR: #000000; TEXT-ALIGN: left
+
+}
+
+.qlbutton {
+
+	BORDER-RIGHT: #161616 1px solid; BORDER-TOP: #161616 1px solid; FONT-SIZE: 7pt; BORDER-LEFT: #161616 1px solid; WIDTH: 82px; COLOR: #cacaca; BORDER-BOTTOM: #161616 1px solid; HEIGHT: 18px; BACKGROUND-COLOR: #000000; TEXT-ALIGN: center
+
+}
+
+.nowrap {
+
+	WHITE-SPACE: nowrap
+
+}
+
+TD.head {
+
+	PADDING-LEFT: 3px; FONT-SIZE: 7pt; FONT-FAMILY: Verdana, Tahoma, Arial
+
+}
+
+
+
+
+

@@ -1,0 +1,147 @@
+/* ************************************* */
+/* styles from Profile.template       */
+/* ************************************* */
+
+/* Fixes for the core theme */
+#profileview
+{
+	padding: 1px;
+	border: 1px solid #696969;
+	background-color: #ECEDF3;
+}
+#profileview h3
+{
+	padding: 0.5em;
+}
+#profileview #basicinfo .content
+{
+	padding: 0.7em 0 0.7em 0.7em;
+}
+#profileview #detailedinfo .content
+{
+	padding: 0.7em 1.2em;
+}
+
+/* The basic user info on the left */
+#basicinfo
+{
+	width: 18%;
+	float: left;
+}
+#detailedinfo
+{
+	width: 81%;
+	float: right;
+	border-left: 1px solid #696969;
+}
+#basicinfo .content, #detailedinfo .content
+{
+	padding: 0px 10px;
+}
+#basicinfo h4
+{
+	font-size: 180%;
+	font-weight: 100;
+	line-height: 105%;
+	white-space: normal;
+	overflow: hidden;
+}
+#basicinfo h4 span.position
+{
+	font-size: 65%;
+	font-weight: 100;
+	display: block;
+}
+#basicinfo img.avatar
+{
+	display: block;
+	margin: 10px 0 0 0;
+}
+#basicinfo ul
+{
+	list-style-type: none;
+	clear: both;
+	margin: 10px 0 0 0;
+}
+#basicinfo ul li
+{
+	display: block;
+	float: left;
+	margin-right: 5px;
+	height: 20px;
+}
+#basicinfo span#userstatus
+{
+	display: block;
+	clear: both;
+}
+#basicinfo span#userstatus img
+{
+	vertical-align: middle;
+}
+#detailedinfo div.content dl
+{
+	clear: both;
+	overflow: auto;
+	margin: 0 0 18px 0;
+	padding: 0 0 15px 0;
+	border-bottom: 1px #ccc solid;
+}
+#detailedinfo div.content dt
+{
+	width: 30%;
+	float: left;
+	margin: 0 0 3px 0;
+	padding: 0;
+	font-weight: bold;
+	clear: both;
+}
+#detailedinfo div.content dd
+{
+	width: 70%;
+	float: left;
+	margin: 0 0 3px 0;
+	padding: 0;
+}
+#detailedinfo div.content dl.noborder
+{
+	border-bottom: 0;
+}
+#detailedinfo div.content dt.clear
+{
+	width: 100%;
+}
+.signature
+{
+	overflow: auto;
+}
+.signature h5
+{
+	font-size: 100%;
+	margin-bottom: 5px;
+}
+
+/* Simple feedback messages */
+div#profile_error, div#profile_success
+{
+	padding: 1ex 2ex;
+	border: solid;
+	border-width: 1px 1px 0 1px;
+}
+
+div#profile_error
+{
+	border-color: red;
+	color: red;
+}
+
+div#profile_error span
+{
+	text-decoration: underline;
+}
+
+div#profile_success
+{
+	border-color: green;
+	color: green;
+}

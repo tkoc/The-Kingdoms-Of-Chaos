@@ -1,0 +1,374 @@
+<?php
+/* Server.php
+ *
+ * Handles server updates each tick.  This script *must* be called each tick...
+ */
+
+$start = clock();
+
+// TODO:  writeLog function, writeErr function
+
+
+require_once ("/var/www/thurmann.net/htdocs/chaos/scripts/Database.class.inc.php");
+require_once ("/var/www/thurmann.net/htdocs/chaos/scripts/all.inc.php");
+require_once ("/var/www/thurmann.net/htdocs/chaos/scripts/Military.class.inc.php");
+require_once ("/var/www/thurmann.net/htdocs/chaos/scripts/Buildings.class.inc.php");
+require_once ("/var/www/thurmann.net/htdocs/chaos/scripts/Science.class.inc.php");
+require_once ("/var/www/thurmann.net/htdocs/chaos/scripts/Magic.class.inc.php");
+require_once ("/var/www/thurmann.net/htdocs/chaos/scripts/News.class.inc.php");
+require_once ("/home/prosjekt/server/config.server.php");
+
+
+// TODO: define sql expressions for constants.
+$SQL_MAX_POP = "(tempField)";  // add homes bonus!!!
+$SQL_MILLITARY ="";
+$SQL_JOBS = "(acres*20)"; // - homes!!!!!
+
+
+$PESANT_EARNS = "3.0";
+$PESANT_EATS="0.5";
+$PESANT_BIRTH = "0.025";
+
+$database = new Database($DBLOGIN,$DBPASSW,$DBHOST,$DBDATABASE);
+$database->connect();
+
+$database->query("SELECT * from Config");
+$config = $database->fetchArray();
+
+if ($config['status']!='Running') {
+	if ($config['pause']>0 && $config['status']=='Pause') {
+		$database->query("UPDATE Config set pause=pause-1");
+		$config['pause']--;
+		// start the game.
+		if ($config['pause']==0) {
+			$database->query("UPDATE Config set status='Running'");	
+			writeLog (FILE_LOG,"\nGAME AUTOMATICALLY STARTED!!!!.");
+		}
+	//  update protection	
+	$database->query("UPDATE Province set created=NOW()");
+	}
+	writeLog (FILE_LOG,"\nNot running.($config[status]:$config[pause])");
+	die();
+}
+
+// kill dead provinces
+$res = $database->query("
+UPDATE Province set status='Killed'
+WHERE acres=0
+");
+
+
+// update all resrouces
+$res = $database->query("
+UPDATE Province 
+SET foodChange = 0
+");
+
+
+$res = $database->query("
+UPDATE Province 
+SET metalChange = 0
+");
+
+
+
+// calculate max population
+$res = $database->query("
+SELECT Province.pID as pID ,Province.acres as acres,Buildings.num as homes, SUM(Military.num) as military from Military LEFT join 
+Province on Province.pID=Military.pID LEFT JOIN Buildings on Province.pID=Buildings.pID where Buildings.bID=3 group by Military.pID");
+if ($res) {
+	$count=0;
+	while ($provinces[$count]=$database->fetchArray()) {
+		$provinces[$count]['maxpop']=(($provinces[$count]['acres']*25)+($provinces[$count]['homes']*5))-$provinces[$count]['military'];
+	$count++;
+	}
+}
+
+reset($provinces);
+foreach ($provinces as $province) {
+	$database->query("UPDATE Province set tempField='$province[maxpop]' where pID='$province[pID]'");
+}
+
+$res = $database->query("
+UPDATE Province 
+SET pesantChange = LEAST($SQL_MAX_POP-pesants, (pesants*$PESANT_BIRTH))
+");
+
+
+$res = $database->query("
+UPDATE Province 
+SET pesantChange = GREATEST($SQL_MAX_POP - pesants, (pesants*($PESANT_BIRTH*2)*-1)) 
+WHERE pesantChange<0
+");
+
+
+
+// update Raw income..
+$res = $database->query("
+UPDATE Province 
+SET incomeChange = (LEAST($SQL_JOBS,pesants)*$PESANT_EARNS)
+");
+
+/*
+AT this point ALL RAW numbers are updated.  Bonues should be added.
+
+*/
+
+
+// Building CLASS
+// each class is timed.
+$buildingStart= clock();
+$buildings = new Buildings( &$database );
+$buildings->doTick();
+$buildingStop =clock();
+$buildingsTot = $buildingStop-$buildingStart;
+
+
+//Military CLASS
+$militaryStart = clock();
+$user = NULL;
+$military = new Military($user, &$database);
+$military->doTick();
+$militaryEnd = clock();
+$militaryTot = $militaryEnd-$militaryStart;
+
+
+// Science CLASS
+$scienceStart = clock();
+$myNULL = NULL;
+$science = new Science (&$database,$myNULL);
+$science->doTick();
+$scienceEnd = clock();
+$scienceTot = $scienceEnd-$scienceStart;
+
+// Magic class
+$magicStart = clock();
+$magic = new Magic(&$database,false);
+$magic->doTick();
+$magicEnd = clock();
+$magicTot = $magicEnd - $magicStart;
+
+// thievery CLASS
+require_once("../www/scripts/Thievery.class.inc.php");
+$thieveryStart = clock();
+$th = new Thievery(&$database,false);
+$th->doTick();
+$thieveryEnd = clock();
+$thieveryTot = $thieveryEnd - $thieveryStart;
+
+
+// News CLASS
+$newsDel = new News($database);
+$newsDel->doTick();
+
+
+// King/queen Bonus
+$res = $database->query("
+UPDATE Province,Kingdom set incomeChange = incomeChange*1.1 WHERE Kingdom.king=Province.pID
+");
+
+$res = $database->query("
+UPDATE Province,Kingdom set foodChange = foodChange*1.1 WHERE Kingdom.king=Province.pID
+");
+
+$res = $database->query("
+UPDATE Province,Kingdom set metalChange = metalChange*1.1 WHERE Kingdom.king=Province.pID
+");
+
+
+
+
+// update resources with bonuses added.
+$database->query("
+UPDATE Province 
+SET metalTotal = metalTotal+metalChange
+");
+
+$database->query("
+UPDATE Province 
+SET metal = metal+metalChange
+");
+
+
+
+
+// update totalfood
+$database->query("
+UPDATE Province 
+SET foodTotal = foodTotal+foodChange
+");
+
+// pesants eat...
+$res = $database->query("
+UPDATE Province 
+SET food = GREATEST(food + foodChange - (pesants*$PESANT_EATS),0)
+");
+
+
+// starve effect below...
+// kill pesants
+$res = $database->query("
+UPDATE Province
+SET pesantChange=LEAST(-pesantChange,-100)
+WHERE food=0 AND pesants>100 AND pesantChange>0
+");
+// reduce income..
+$res = $database->query("
+UPDATE Province
+SET incomeChange=incomeChange*0.8
+WHERE food=0
+");
+
+// update total income
+$res = $database->query("
+UPDATE Province 
+SET incomeTotal = incomeTotal+incomeChange
+");
+
+
+// update gold
+$res = $database->query("
+UPDATE Province 
+SET gold = incomeChange + gold
+");
+
+
+// update pesantsTotal (growth curve)
+$res = $database->query("
+UPDATE Province 
+SET pesantTotal = pesantTotal+pesantChange
+");
+
+
+$res = $database->query("
+UPDATE Province 
+SET pesants= pesants+pesantChange
+");
+
+
+// debug check..
+
+$database->query("SELECT * from Province where gold<0 OR pesants<0");
+if ($database->numRows()>0) {
+	while (($item=$database->fetchArray())) {
+		writeLog(FILE_ERROR_LOG,"
+\nNegative pesants OR gold discovered!!!! 
+goldchange=$item[incomeChange]
+gold=$item[gold]
+pesantChange=$item[pesantChange]
+pesants=$item[pesants]
+ticks: $config[ticks]
+");
+
+	}
+}
+
+$database->query("UPDATE Config set ticks=(ticks+1), lastTickTime=NOW()");
+
+$database->query("SELECT count(pID) as totalUsers from Province");
+$totalUsers = $database->fetchArray();
+
+$database->shutdown();
+
+
+
+$stop = clock();
+$exe_time = $stop - $start;
+
+writeLog (FILE_LOG,"tick: $config[ticks]total script time $exe_time seconds with $totalUsers[totalUsers] Provinces.
+buildingClass: $buildingsTot, militaryClass: $militaryTot, ScienceClass: $scienceTot, Magic: $magicTot
+");
+
+// update config
+
+
+// writeConfig("config.server.php",$config);
+
+
+
+
+// functions below
+/////////////////////////////////////
+// void writeLog(filename, txt)
+/////////////////////////////////////
+//
+// parameters:
+//    filename: the filename to write to
+//    txt     : the string to write
+//
+// writes txt to file.
+/////////////////////////////////////
+
+function writeLog ($filename, $txt) {
+   if (is_writable($filename)) {
+
+      if (!$handle = fopen($filename, 'a')) {
+         print "Cannot open file ($filename)";
+         exit;
+      }
+
+      if (!fwrite($handle, $txt)) {
+         print "Cannot write to file ($filename)";
+         exit;
+      }
+      fclose($handle);
+   } else {
+      echo "Error writing to $filname, file not writeable";
+   }
+}
+
+////////////////////////////////////
+// float clock()
+////////////////////////////////////
+//
+// calculates time in seconds/miliseconds
+//
+// returns:
+//    a value in miliseconds
+//  
+////////////////////////////////////
+
+function clock(){
+    list($usec, $sec) = explode(" ",microtime());
+    return ((float)$usec + (float)$sec);
+}
+
+
+
+
+// end of file (trash below)
+
+
+
+
+
+/*function writeConfig($filename,$config) {
+
+   if (is_writable($filename)) {
+      if (!$handle = fopen($filename, 'w')) {
+         print "Cannot open file ($filename)";
+         return;
+      }
+
+      if (!fwrite($handle, '<?php
+// do not modify!  Computer generated code below!
+// (modified by script)
+$config["ticks"] = ' . $config["ticks"] . ';
+
+?>
+')) {
+         print "Cannot write to file ($filename)";
+         return;
+      }
+      fclose($handle);
+
+
+   } else {
+      writeLog(FILE_ERROR_LOG,"could not update config.");
+   }
+
+}
+
+*/
+?>
+

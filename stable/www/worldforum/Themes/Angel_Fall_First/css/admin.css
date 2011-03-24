@@ -1,0 +1,45 @@
+/* styling the admin section */
+ol.search_results
+{
+	margin-top: 0;
+	padding-top: 0;
+}
+ol.search_results li
+{
+	padding-top: 5px;
+}
+
+/* new features settings screen */
+.features
+{
+	clear: both;
+	border-bottom: solid 1px #e0e0e0;
+}
+.features_image
+{
+	float: left;
+	margin: 0.5em 2em 0.5em 1em;
+}
+.features_switch
+{
+	margin: 0.2em 1em 1em 1em;
+	float: right;
+}
+.features h4
+{
+	padding: 2em 0 0.5em 0.5em;
+	margin: 0;
+	font-size: 1.1em;
+}
+.features p
+{
+	padding: 0 1em 1em 1em;
+	margin: 0;
+}
+
+/* admin home */
+.home_image
+{
+	float: left;
+	margin: 0 1em 1em 1em;
+}
