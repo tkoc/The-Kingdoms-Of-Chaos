@@ -1,6 +1,0 @@
-
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^wiki.tkoc.net$ [OR]
-RewriteCond %{HTTP_HOST} ^www.wiki.tkoc.net$
-RewriteRule ^/?$ "http\:\/\/wiki\.tkoc\.net\/wiki" [R=301,L]
-
