@@ -1,0 +1,599 @@
+/* * Copyright 2008-2009 by:     WannaBeDie (http://wannabedie.deviantart.com) * */
+/* Normal, standard links. */
+a:link 
+{ 
+	text-decoration: none; 
+	color: #E5DCB9; 
+}
+
+a:visited 
+{ 
+	text-decoration: none; 
+	color: #E5DCB9; 
+}
+
+a:hover, a:active { color: #CCBC7D; text-decoration: none; }
+/* Tables should show empty cells. */
+table
+{
+	empty-cells: show;
+}
+
+
+/* The main body of the entire forum. */
+body
+{
+	margin: 0;
+	padding: 0;
+	color: #BAB088;
+	background-image: url('images/background.jpg');
+	background-repeat: repeat-x;
+	background-color: #1e1913;
+	font-style:normal; font-variant:normal; 
+	font-weight:normal; 
+	font-size:82%; 
+	font-family:Trebuchet MS, Lucida Grande, Verdana, Georgia, Sans-Serif;
+}
+
+/* Input boxes - just a bit smaller than normal so they align well. */
+input, textarea, button
+{
+	font-size: 9pt;
+	color: #E5DCB9;
+	font-family:Trebuchet MS, Lucida Grande, Verdana, Georgia, Sans-Serif;
+	background: url(images/textbg.gif);
+	border: 1px solid #5b472d;
+}
+
+/* All input elements that are checkboxes or radio buttons. */
+input.check
+{
+}
+
+/* Selects are a bit smaller, because it makes them look even better 8). */
+select
+{
+	font-size: 8pt;
+	font-weight: normal;
+	color: #000000;
+	font-family: tahoma, sans-serif;
+}
+
+/* Standard horizontal rule.. ([hr], etc.) */
+hr, .hrcolor
+{
+	height: 1px;
+	border: 0;
+	color: #666666;
+	background-color: #666666;
+}
+
+.hrcolor-post {
+	height: 1px;
+	border: 0;
+	color: #9c927b;
+	background-color: #9c927b;
+}
+
+/* A quote, perhaps from another post. */
+blockquote
+{
+	color: #000000;
+	background-color: #9c927b;
+	display: block;
+	border: 1px solid #000000;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-khtml-border-radius:8px;
+	margin: 1px;
+	padding: 6px;
+	font-size: 97%;
+	line-height: 1.4em;
+}
+
+/* A code block - maybe even PHP ;). */
+code
+{
+	color: #000000;
+	background-color: #f5f5f5;
+	font-family: "courier new", "times new roman", monospace;
+	font-size: x-small;
+	line-height: 1.3em;
+	/* Put a nice border around it. */
+	border: 1px solid #000000;
+	margin: 1px auto 1px auto;
+	padding: 1px;
+	width: 99%;
+	/* Don't wrap its contents, and show scrollbars. */
+	white-space: nowrap;
+	overflow: auto;
+	display: block;
+
+	/* Stop after about 24 lines, and just show a scrollbar. */
+	max-height: 24em;
+}
+
+/* The "Quote:" and "Code:" header parts... */
+.quoteheader, .codeheader
+{
+	color: #000000;
+	text-decoration: none;
+	font-style: normal;
+	font-weight: bold;
+	font-size: x-small;
+	line-height: 1.2em;
+}
+
+/* For links to change the code stuff... */
+.codeoperation
+{
+	font-weight: normal;
+}
+
+/* Generally, those [?] icons.  This makes your cursor a help icon. */
+.help
+{
+	cursor: help;
+}
+
+/* /me uses this a lot. (emote, try typing /me in a post.) */
+.meaction
+{
+	color: red;
+}
+
+/* The main post box - this makes it as wide as possible. */
+.editor
+{
+	width: 96%;
+}
+
+/* Highlighted text - such as search results. */
+.highlight
+{
+	background-color: yellow;
+	font-weight: bold;
+	color: black;
+}
+
+/* A more discreet highlight colour, for selected membergroups etc. */
+.highlight2
+{
+	background-color: #B3F4B0;
+	color: black;
+}
+
+/* Alternating backgrounds for posts, and several other sections of the forum. */
+.windowbg, #preview_body
+{
+}
+.windowbg2
+{
+}
+
+
+/* Color for background of posts requiring approval */
+.approvebg
+{
+	color: #000000;
+	background-color: #F6E0D4;
+}
+/* Color for background of *topics* requiring approval */
+.approvetbg
+{
+	color: #000000;
+	background-color: #E4A17C;
+}
+
+/* These are used primarily for titles, but also for headers (the row that says what everything in the table is.) */
+.titlebg, tr.titlebg th, tr.titlebg td, .titlebg2, tr.titlebg2 th, tr.titlebg2 td
+{
+	E5DCB9
+	font-style: normal;
+	background: #3f3427 url(images/titlebg-m.gif) repeat-x;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 22px;
+	
+}
+.titlebg, .titlebg a:link, .titlebg a:visited {
+	color: #E5DCB9;
+	font-style: normal;
+	font-size: 13px;	
+}
+.titlebg a:hover {
+	text-decoration: underline;
+}
+
+.titlebg2 td {
+	color: #E5DCB9;
+}
+/* same as titlebg, but used where bold text is not needed */
+.titlebg2 a:link, .titlebg2 a:visited {
+	color: #E5DCB9;
+	font-style: normal;
+	text-decoration: underline;
+}
+
+.titlebg2 a:hover 
+{
+	color: #E5DCB9;
+}
+
+/* This is used for categories, page indexes, and several other areas in the forum. */
+.catbg, .catbg3
+{	
+	height: 22px;
+	background-color: #4d402f;
+	background-image: url(images/catbg-m.gif);
+}
+
+/* This is used for a category that has new posts in it... to make it light up. */
+.catbg2
+{	
+	height: 22px;
+	background-color: #4d402f;
+	background-image: url(images/catbg-m.gif);
+}
+
+.catbg, .catbg2, .catbg3
+{
+	font-weight: bold;
+	color: #E5DCB9;
+}
+/* the today container in calendar */
+.calendar_today
+{
+	background-color: #E5DCB9;
+}
+
+/* This is used for tables that have a grid/border background color (such as the topic listing.) */
+.bordercolor
+{}
+
+/* This is used on tables that should just have a border around them. */
+.tborder
+{}
+
+/* Default font sizes: small (8pt), normal (10pt), and large (14pt). */
+.smalltext
+{
+	font-size: 8pt;
+	font-family: tahoma, sans-serif;
+}
+.normaltext
+{
+	font-size: small;
+}
+.largetext
+{
+	font-size: large;
+}
+.smalltext2
+{
+	font-weight:bold; 
+	font-size: small;
+	font-family: tahoma;
+}
+
+/* And this is the bottom, where the copyright is, etc. */
+#footerarea
+{	
+	/*background: url(images/footerbg.gif) repeat-x;*/
+	color: #E5DCB9;
+	border: 1px solid #9c927b;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-khtml-border-radius:8px;
+	margin-top:10px;
+}
+
+/* Posts and personal messages displayed throughout the forum. */
+.post, .personalmessage
+{
+	width: 100%;
+	overflow: auto;
+	line-height: 1.3em;
+	font-size:101%;
+}
+
+.post {
+	overflow:hidden;
+}
+
+/* All the signatures used in the forum.  If your forum users use Mozilla, Opera, or Safari, you might add max-height here ;). */
+.signature
+{
+	width: 100%;
+	overflow: auto;
+	padding-bottom: 3px;
+	line-height: 1.3em;
+}
+/* No image should have a border when linked */
+a img{
+	border: 0;
+}
+
+/* Calendar colours for birthdays, events and holidays */
+.birthday
+{
+	color: #920AC4;
+}
+
+.event
+{
+	color: #078907;
+}
+
+.holiday
+{
+	color: #000080;
+}
+
+/* Colours for warnings */
+.warn_mute
+{
+	color: red;
+}
+
+.warn_moderate
+{
+	color: orange;
+}
+
+.warn_watch
+{
+	color: green;
+}
+
+/* The AJAX notifier */
+#ajax_in_progress
+{
+	background: #32CD32;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18pt;
+	padding: 3px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+/* Styling for BBC tags */
+.bbc_color a
+{
+	color: inherit;
+}
+
+.bbc_img
+{
+	border: 0;
+}
+
+.bbc_list
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.bbc_size
+{
+	line-height: 1.3em;
+}
+
+.bbc_table
+{
+	font: inherit;
+	color: inherit;
+}
+
+.bbc_table td
+{
+	font: inherit;
+	color: inherit;
+	vertical-align: top;
+}
+
+.bbc_u
+{
+	text-decoration: underline;
+}
+/* styling the admin section */
+ol.search_results
+{
+	margin-top: 0;
+	padding-top: 0;
+}
+ol.search_results li
+{
+	padding-top: 5px;
+}
+
+.button_strip_submit
+{
+	background: transparent;
+	color: white;
+	text-transform: uppercase;
+	vertical-align: top;
+	text-decoration: none;
+	font-size: 9px;
+	font-family: tahoma, sans-serif;
+	border: 0;
+}
+
+.button_strip_submit:hover
+{
+	color: #e0e0ff;
+}
+
+.openid_login
+{
+	background: white url(images/openid.gif) no-repeat;
+	padding-left: 18px;
+}
+
+/* new features settings screen */
+.features
+{
+	clear: both;
+	border-bottom: solid 1px #e0e0e0;
+}
+.features_image
+{
+	float: left;
+	margin: 1em 2em 0.5em 1em;
+}
+.features_switch
+{
+	margin: 0.2em 1em 1em 1em;
+	float: right;
+}
+.features h4
+{
+	padding: 2em 0 0.5em 0.5em;
+	margin: 0;
+	font-size: 1.1em;
+}
+.features p
+{
+	padding: 0 1em 1em 1em;
+	margin: 0;
+}
+
+a.moderation_link, a.moderation_link:visited
+{
+	color: red;
+	font-weight: bold;
+}
+
+/* These are for the auto suggest floating div type thing. */
+.auto_suggest_div
+{
+	border: 1px solid black;
+	position: absolute;
+}
+
+/* An auto suggest item */
+.auto_suggest_item
+{
+	background-color: #DDDDDD;
+}
+
+/* hovered auto suggest item */
+.auto_suggest_item_hover
+{
+	background-color: #888888;
+	cursor: pointer;
+	color: #EEEEEE;
+}
+/* Menu */
+#menu-top {
+  border-top:1px solid #4d402f; 
+}
+#menu-top {
+	color: #D0D0D0; 
+}
+/* Menu End */
+
+
+#wrapper
+{
+	clear: both;
+	float: left;
+	width: 100%;
+	color: #BAB088;
+	background: #000000;
+	border-left: 1px solid #432e13;
+	border-right: 1px solid #432e13;
+	border-bottom: 1px solid #432e13;
+}
+#content-wrapper
+{
+	width:725px;
+	float: left;
+	padding: 0px 0px 0px 10px;
+}
+#wrapper2 {
+	width: 750px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 11px;
+	padding-bottom: 11px;
+}
+#header
+{
+	float: left;
+	width: 100%;
+	background: #000000;
+	clear: right;
+	border-left: 1px solid #432e13;
+	border-right: 1px solid #432e13;
+}
+#navigation
+{
+	clear: both;
+	float: left;
+	width: 100%;
+	background-image: url('images/header.gif');
+	height: 340px;
+	background-repeat:no-repeat;
+	background-position:bottom;
+	margin-bottom:25px;
+}
+#nav {
+	height:23px;
+}
+
+.linktree {
+	margin-top:5px;
+	margin-bottom:15px;
+}
+
+.linktree-image {
+	margin-top:1px;
+	float:left;
+}
+/* Header */
+
+#header h1 
+{ 
+	padding-left: 30px; 
+}
+
+/* Wrapper */
+
+#wrapper a:link { 
+	font-weight: bold; 
+	text-decoration: none; 
+}
+
+#wrapper a:visited { 
+	font-weight: bold; 
+	text-decoration: none; 
+}
+
+#wrapper a:hover, #wrapper a:active { 
+	text-decoration: none; 
+}
+.userarea {
+	font-size: 11px;
+	width: 97%;
+	text-align: center;
+	color: #BAB088;
+	padding-top: 20px;
+}
+.loginbutton {
+	background: url(images/custom/login_button.gif) no-repeat;
+	width: 52px;
+	height: 26px;
+	border: none;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	margin-top: 2px;
+} 
+/* * Copyright 2008-2009 by:     WannaBeDie (http://wannabedie.deviantart.com) * */

@@ -1,0 +1,125 @@
+In this page we will describe the Council page.
+
+===== Councillors =====
+
+They cost 1.500.000 gc. Lady Brienne is free. 
+
+=== Accidentally dropped your councelor or it is assassinated? === 
+
+Bad luck. You have lost your 1,500,000 gc forever.
+
+
+==== Lady Brienne ====	
+Nothing special
+
+==== Lady Alustriel ====
+Races: Dwarf, Human, Elf
+
+Bonus: +10% magic offense & defense
+
+==== Ungrim Ironfist ====
+Races: Dwarf, Human, Elf
+
+Bonus: +10% morale
+
+==== Melangult the Shadow ====
+Dwarf, Human, Elf
+
++20 thievery offense
+
+==== Goliath ==== 
+Orc, Undead, Giants
+
++10% thievery defense / +5% morale
+
+==== Arrk Maneater ==== 
+Orc, Undead, Giants
+
++10% attack power
+
+==== Raistelin Jamere ==== 
+Orc, Undead, Giants
+
++10% offense magic / +5% defense
+
+===== Seasons =====
+
+==== Summer ====
+10% less building time
+10% extra peasant growth
+
+==== Autumn ====
+10% less military costs
+10% extra metal income
+
+==== Winter ====
+20% Longer attack time
+5% defense boost
+
+==== Spring ====	
+10% additional morale
+
+
+===== Military Upkeep =====
+
+
+You will have to pay 0.6gc for every single military you have every tick.
+
+So 10000 military will cost you 6000 gc every tick.
+
+
+[expenses gold / 0.6 = total military]
+
+[total Military * 0.6 = expenses gold]
+
+
+You will have to pay 0.35kg food for every unit (sum at council) every tick.
+
+So 10000 population will cost you 3500 kg food every tick.
+
+
+[expenses food / 0.35 = total population]
+
+[total population * 0.35 = expenses food] 
+
+
+The food upkeep you see at the council page is the expense of the previous tick’s population.
+
+===== Ranking =====
+
+==== Networth ====
+
+This displays your rank on networth. 
+
+Hidden provinces will not count in this ranking.
+
+==== Acres ====
+
+This displays your rank on acres. 
+
+Hidden provinces will not count in this ranking.
+
+==== Thievery ====
+
+This displays how good you are with thievery, the highest rank you have, the better you are using thievery compared to the rest.
+==== Magic ====
+
+This displays how good you are with magic, the highest rank you have, the better you are using magic compared to the rest.
+
+You gain points by succeeding spells.
+
+You lose points when you fail a spell or someone casts an evil spell on you.
+
+
+===== Army =====
+
+It shows your army experience in war. You gain experiance when doing attacks, and when you are attacked. 
+
+You gain more points when you attack someone bigger then yourself.
+You cannot lose any experience.
+
+This ranking is not supported at the moment. It is not stable and buggy. 
+
+===== Average =====
+
+How this rank works is only known to the gods. Do you best and become first. However this is a new ranking and might contain some bugs, that's why it isn't shown in the results.

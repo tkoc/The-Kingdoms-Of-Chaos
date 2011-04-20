@@ -1,0 +1,66 @@
+<!--
+/*******************************************************************************
+    The Kingdoms of Chaos - An online browser text game - <http://www.tkoc.net>
+    Copyright (C) 2011 - Administrators of The Kingdoms of Chaos
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Contact Information:
+    Petros Karipidis  - petros@rufunka.com - <http://www.rufunka.com/>
+    Anastasios Nistas - tasosos@gmail.com  - <http://tasos.pavta.com/>
+
+    Other Information
+    =================
+    The exact Author of each source file should be specified after this license
+    notice. If not specified then the "Current Administrators" found at
+    <http://www.tkoc.net/about.php> are considered the Authors of the source
+    file.
+
+    As stated at the License Section 5.d: "If the work has interactive user
+    interfaces, each must display Appropriate Legal Notices; however, if the
+    Program has interactive interfaces that do not display Appropriate Legal
+    Notices, your work need not make them do so.", we require you give
+    credits at the appropriate section of your interface.
+********************************************************************************/
+-->
+<form action="{-delete action-}" method="post">
+  <table width="75%"  border="0" cellspacing="2" cellpadding="0">
+    <tr> 
+      <td width="50%" class="rep4">{-from or to-}</td>
+      <td width="30%" class="rep4">Date</td>
+      <td width="10%" class="rep4">Read</td>
+      <td width="10%" class="rep4">Delete</td>
+    </tr>
+	{-DYNAMIC: message-}
+    <tr> 
+      <td class="rep1"><a href="{-message link-}" class='rep'><b> Message </b></a>{-province name-}<br>of {-province-} in {-kingdom-}</td>
+      <td class="rep1">{-date-}</td>
+      <td class="rep1" align="center"><input type="checkbox" class='form'name="dummy" value="dummy" disabled 
+{-isRead-}></td>
+      <td class="rep1" align="center"><input type="checkbox" class='form' name="id[]" value="{-delete value-}" title='Check to delete'></td>
+    </tr>
+	{-END DYNAMIC: message-}
+	<tr>
+	  <td colspan="3" class="rep1">&nbsp;</td>
+	  <td align="center" class="rep1"><input type="submit" class="form" name="deleteMessage" value="Delete" title='Delete messages'></td>
+	</tr>
+  </table>  
+</form>
+<a href="{-first link-}" target="_self" title="To the first page" class='rep'>&lt;&lt;</a>&nbsp;&nbsp;
+<a href="{-prev link-}" target="_self" title="To the previous page" class='rep'>&lt;</a>&nbsp;&nbsp;
+{-DYNAMIC: choose page-}
+  <a href="{-page link-}" target="_self" title="To page number {-page number-}" class='rep'>{-page-}</a>{-no link-}&nbsp;
+{-END DYNAMIC: choose page-}
+&nbsp;<a href="{-next link-}" target="_self" title="To the next page" class='rep'>&gt;</a>&nbsp;&nbsp;
+<a href="{-last link-}" target="_self" title="To the last page" class='rep'>&gt;&gt;</a>

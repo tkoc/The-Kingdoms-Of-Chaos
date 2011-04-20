@@ -1,0 +1,67 @@
+== Time: ==
+
+
+Time works different in the World of Chaos than it does in our world. And time always ticks by, regardless of your presence.
+
+
+* All time and dates we work with is GMT+2
+
+* 1 hour in real life equals 1 - one - day in Chaos
+
+* If you are inactive for more than 72 ticks (3 real life days), the Gods of Chaos will put your province in a safe haven.
+
+* If you are inactive for more than 7 REAL life days, your province will be removed
+
+* Chaos will continue to run even if you are not here
+
+* One age lasts about 60 days(1500 ticks)
+
+
+
+Now, a healthy suggestion is to check in on your province at least 3 times each real life day.
+
+
+
+== The people: ==
+
+
+The people of Chaos are simple minded and don't demand much of their leaders. In fact, they like war and destruction, but in case you want to follow another path, here are some facts about your Province and peasants:
+
+
+* You control one province that is part of a Kingdom. A kingdom can only have 6 provinces.
+This number can change from age to age.
+
+
+* 1 employed peasant generates 3 gold coins (gc) each day
+
+
+* The King or Queen will receive an additional income bonus, this depends on the number of provinces in the Kingdom. The more provinces the higher the bonus. It goes up to 15% with a full kingdom (6 provinces)
+
+
+* 1 peasant eats 0.35kg of food every day
+
+
+* Each day your population will increase with a base of 2.5%, until you reach maximum population.
+
+
+* If you are starving, peasants will die and generate less income.
+
+
+* Your people will work harder the first days of your leadership, bringing in more gold and even some metal.
+
+
+* To get more land you can either explore new land, grow it magically or attack others to grab their land!
+
+
+* If your military grows too large (in excess of about 90% of your maximum population) compared to your peasants, the military is forced to leave slowly every tick. If you have less then 10% peasants it isn't that big of a problem.
+
+
+== Bonuses: ==
+
+
+By virtue of your race, or by researching knowledge, building buildings or casting spells you might get bonuses for different things like attack power, resource income, magic, thievery and more! This bonus is limited to maximum 100% extra per game section, where game sections are made up of magic, knowledge, buildings, race and thievery). So you might be able to get 100% extra from spells and another 50% from buildings giving 150% extra. For example bonus on income can be had by enchanted land spells and marketplace buildings. 150% bonus on income means that your base income is multiplied by 2,5.
+
+
+== General: ==
+
+1 Acre will have room for 15 peasants.

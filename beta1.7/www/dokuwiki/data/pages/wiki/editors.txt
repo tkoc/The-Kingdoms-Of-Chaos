@@ -1,0 +1,20 @@
+===== Editors =====
+
+This page is meant for the [[editors]] of the game.
+
+Current Editors are:
+
+[[Shiverz]]
+
+
+==== Templates ====
+
+[[Syntax]] - This page displays how to use formatting codes.
+
+[[Personal template]] - Make a player page.
+
+[[Normal pages]] - Use this template when you create a normal page inside the wiki.
+
+
+
+
