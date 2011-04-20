@@ -1,0 +1,8 @@
+a:25:{i:0;a:3:{i:0;s:14:"document_start";i:1;a:0:{}i:2;i:0;}i:1;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:0;}i:2;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:19:"
+<?php
+$myLanguage[";}i:2;i:1;}i:3;a:3:{i:0;s:18:"doublequoteopening";i:1;a:0:{}i:2;i:20;}i:4;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:19:"enchanted-land-name";}i:2;i:21;}i:5;a:3:{i:0;s:18:"doublequoteclosing";i:1;a:0:{}i:2;i:40;}i:6;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:4:"] = ";}i:2;i:41;}i:7;a:3:{i:0;s:18:"doublequoteopening";i:1;a:0:{}i:2;i:45;}i:8;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:14:"Enchanted Land";}i:2;i:46;}i:9;a:3:{i:0;s:18:"doublequoteclosing";i:1;a:0:{}i:2;i:60;}i:10;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:14:";
+$myLanguage[";}i:2;i:61;}i:11;a:3:{i:0;s:18:"doublequoteopening";i:1;a:0:{}i:2;i:75;}i:12;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:19:"enchanted-land-desc";}i:2;i:76;}i:13;a:3:{i:0;s:18:"doublequoteclosing";i:1;a:0:{}i:2;i:95;}i:14;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:4:"] = ";}i:2;i:96;}i:15;a:3:{i:0;s:18:"doublequoteopening";i:1;a:0:{}i:2;i:100;}i:16;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:37:"Enchanted land gives the target $this";}i:2;i:101;}i:17;a:3:{i:0;s:6:"entity";i:1;a:1:{i:0;s:2:"->";}i:2;i:138;}i:18;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:25:"addGoldIncome% more gold,";}i:2;i:140;}i:19;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:165;}i:20;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:186:"						$this->addMetalIncome% more metal, $this->addFoodIncome% more
+						food and $this->addPeasantGrowth% more peasants than usual each tick. 
+						This spell is unknown to Undeads.";";}i:2;i:165;}i:21;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:165;}i:22;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:4:"
+?>
+";}i:2;i:356;}i:23;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:359;}i:24;a:3:{i:0;s:12:"document_end";i:1;a:0:{}i:2;i:359;}}

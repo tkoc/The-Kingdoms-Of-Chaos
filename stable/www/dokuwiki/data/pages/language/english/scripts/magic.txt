@@ -1,0 +1,9 @@
+
+<?php
+$myLanguage["enchanted-land-name"] = "Enchanted Land";
+$myLanguage["enchanted-land-desc"] = "Enchanted land gives the target $this->addGoldIncome% more gold,
+							$this->addMetalIncome% more metal, $this->addFoodIncome% more
+							food and $this->addPeasantGrowth% more peasants than usual each tick. 
+							This spell is unknown to Undeads.";
+
+?>

@@ -1,0 +1,8 @@
+====== Main Pages (tkoc.net/*.php) ======
+  * [[language:english:index|index.php]]
+  * [[language:english:history|history.php]]
+  * [[language:english:login|login.php]]
+
+
+====== Game Pages (tkoc.net/scripts) ======
+  * [[language:english:scripts:magic|Magic]]

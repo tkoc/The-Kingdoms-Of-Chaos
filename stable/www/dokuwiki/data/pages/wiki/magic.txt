@@ -1,0 +1,44 @@
+=== How does the system calculate the amount of wizards you need to cast a spell? ===
+
+The amount of wizards needed to cast a spell depends on the acres of the target province. There are also Knowledge (Mage Circle) that reduces the recommended wizards by 25%.
+
+Racial bonuses can reduce it too (Elf & Undead).
+
+
+=== How is the magical rank measured ? ===
+
+This is only known to The Gods. What us mortals do know however is that the more operations you make, the more 'points' you get. The more points, the higher the rank. You get negative points for failed operations.
+
+Each time someone succeeds in a magic operation against you, you also lose some points.
+There is also a difference in the 'strenght' of a spell. This basically means that spells like 'Soul Harvest', 'Earthquake', 'Doom', generate a lot more magic points then e.g. a vermin plague. 
+
+
+=== What are the wizard ranks ? ===
+
+* Ungifted (worst)
+
+* Gifted
+
+* Student
+
+* Apprentice
+
+* Maegi
+
+* Battle Mage
+
+* High Mage
+
+* Archmage (best) 
+
+
+=== Does adding more wizards to a spell give more success ? ===
+
+No. It absolutely does not. It only makes the spell harder to dispel. (Dispel is the only operation that gets 'stronger' if you add more wizards). 
+
+So cast only with the recommended amount of wizards ! 
+
+
+=== Can I cast friendly spells outside my kingdom ? ===
+
+No. Friendly spells can be cast only onto people of your own kingdom.

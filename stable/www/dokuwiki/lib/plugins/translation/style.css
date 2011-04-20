@@ -1,0 +1,61 @@
+.dokuwiki div.plugin_translation {
+    float: right;
+    font-size: 95%;
+    padding-right: 2em;
+}
+
+.dokuwiki div.plugin_translation ul {
+    padding: 0;
+    margin: 0;
+}
+.dokuwiki div.plugin_translation ul li{
+    float: left;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.dokuwiki div.plugin_translation ul li a.wikilink1:link,
+.dokuwiki div.plugin_translation ul li a.wikilink1:hover,
+.dokuwiki div.plugin_translation ul li a.wikilink1:active,
+.dokuwiki div.plugin_translation ul li a.wikilink1:visited {
+    background-color: #000080;
+    color: #fff !important;
+    text-decoration:none;
+    padding: 0 0.2em;
+    margin: 0.1em 0.2em;
+    border: none !important;
+}
+
+.dokuwiki div.plugin_translation ul li a.wikilink2:link,
+.dokuwiki div.plugin_translation ul li a.wikilink2:hover,
+.dokuwiki div.plugin_translation ul li a.wikilink2:active,
+.dokuwiki div.plugin_translation ul li a.wikilink2:visited {
+    background-color: #808080;
+    color: #fff !important;
+    text-decoration:none;
+    padding: 0 0.2em;
+    margin: 0.1em 0.2em;
+    border: none !important;
+}
+
+.dokuwiki div.plugin_translation select,
+.dokuwiki div.plugin_translation input {
+    border: none;
+    background-color: #ccc;
+}
+
+.dokuwiki div.plugin_translation select.wikilink1,
+.dokuwiki div.plugin_translation option.wikilink1 {
+    background-color: #000080;
+    color: #fff;
+    text-align: center;
+}
+
+.dokuwiki div.plugin_translation select.wikilink2,
+.dokuwiki div.plugin_translation option.wikilink2 {
+    background-color: #ccc;
+    color: #333;
+    text-align: center;
+}

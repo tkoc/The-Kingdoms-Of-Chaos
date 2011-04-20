@@ -1,0 +1,24 @@
+/* Package browsing styles */
+#package_list .tborder
+{
+	margin: .25em 0 .25em 26px;
+}
+
+#package_list ol, #package_list ol li
+{
+	list-style: decimal;
+	margin-left: 50px;
+}
+
+#package_list ol ul, #package_list ol ul li
+{
+	margin-left: 0;
+	list-style: none;
+}
+
+.description
+{
+	max-height: 15em;
+	overflow: auto;
+	padding-bottom: .5em;
+}
