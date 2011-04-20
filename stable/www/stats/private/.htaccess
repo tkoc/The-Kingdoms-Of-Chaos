@@ -1,5 +1,0 @@
-AuthType Basic
-AuthName "Private Tools"
-AuthUserFile /home/mysteq/.htpasswds/chaos/private/passwd
-
-require valid-user
