@@ -1,0 +1,14 @@
+/* Moderation Notes */
+.moderation_notes
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: auto;
+	height: 9.5em;
+}
+.moderation_notes li
+{
+	padding: 4px 0px 4px 4px;
+	border-bottom: 1px solid #cccccc;
+}

@@ -1,0 +1,358 @@
+/*******************************************************************************
+    The Kingdoms of Chaos - An online browser text game - <http://www.tkoc.net>
+    Copyright (C) 2011 - Administrators of The Kingdoms of Chaos
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Contact Information:
+	Petros Karipidis  - petros@rufunka.com - <http://www.rufunka.com/>
+	Anastasios Nistas - tasosos@gmail.com  - <http://tasos.pavta.com/>
+	
+	Other Information
+	=================
+	The exact Author of each source file should be specified after this license
+	notice. If not specified then the "Current Administrators" found at
+	<http://www.tkoc.net/about.php> are considered the Authors of the source
+	file.
+
+	As stated at the License Section 5.d: "If the work has interactive user
+	interfaces, each must display Appropriate Legal Notices; however, if the
+	Program has interactive interfaces that do not display Appropriate Legal
+	Notices, your work need not make them do so.", we require you give
+	credits at the appropriate section of your interface.
+********************************************************************************/
+/* Define the basic body structure that all documents will take on (background-color: #FFFFFF;)*/
+BODY {
+leftmargin: 0;
+topmargin: 0;
+marginwidth: 0;
+marginheight: 0;
+color: #000000; 
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size: 11px; 
+scrollbar-3dlight-color:#98aab1; 
+scrollbar-arrow-color:#ffffff; 
+scrollbar-base-color:#ced6dc; 
+scrollbar-darkshadow-color:#8DC6D1; 
+scrollbar-face-color:#999999; 
+scrollbar-highlight-color:#CCCCCC; 
+scrollbar-shadow-color:#CCCCCC; 
+scrollbar-track-color:#000000;
+}
+
+BODY.controlElements {
+background-color: #EEEEBB;
+leftmargin: 0;
+topmargin: 0;
+marginwidth: 0;
+marginheight: 0;
+color: #000000; 
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size: 11px; 
+}
+
+div.stress {
+font-size:11px;
+color:#000000;
+font-weight: bold;
+}
+
+div.sig {
+color:#666666;
+font-size:7.5pt;
+}
+
+span.link {
+font-size:11px;
+}
+
+TD {
+font-size:11px;
+}
+TR.row {
+background:#CCCCCC;
+color:#000000;
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size:11px;
+}
+
+TR.row1 {
+background:#FFFFFF;
+color:#000000;
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size:11px;
+}
+
+TR.row2 {
+background:#EEEEEE;
+color:#000000;
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size:11px;
+}
+
+TR.standard {
+color:#000000;
+background:#FFFFFF;
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size:11px;
+}
+
+TR.forumstandard {
+color:#000000;
+background:#FFFFFF;
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size:11px;
+}
+
+TR.forumheader {
+background:#6666AA;
+color:#FFFFFF;
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size:11px;
+font-weight: bold;
+}
+
+TR.title {
+color:#FFFFFF;
+    font-size: 9.5pt;
+    font-weight: bold;
+    height: 25px;
+    background-image: url(images/headerblack.jpg);
+    }
+    
+    TR.subtitle {
+color:#000000;
+    font-weight: bold;
+    background:#BBBBEE;
+    }
+    
+    TD.col3 {
+border-bottom:1px #000000 solid;
+font-size:11px;
+background:#FFFFFF;
+}
+    
+/* background was #DDD2C9 */
+TD.col2 {
+border-bottom:1px #000000 solid;
+border-right:1px #000000 solid;
+font-size:11px;
+background:#AAAAAA;
+}
+
+TD.col2red {
+border-bottom:1px #000000 solid;
+border-right:1px #000000 solid;
+font-size:11px;
+background:#AAAAAA;
+color:#FF0000;
+}
+/* background was #B09E94 */
+TD.col1 {
+border-bottom:1px #000000 solid;
+border-right:1px #000000 solid;
+font-size:11px;
+background:#DDDDDD;
+}
+
+TD.col1red {
+border-bottom:1px #000000 solid;
+border-right:1px #000000 solid;
+font-size:11px;
+background:#DDDDDD;
+color:#FF0000;
+}
+
+TD.column {
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size:10px;
+border-right:1px #000000 solid;
+border-bottom:1px #000000 solid;
+}
+TD.header {
+background-color: #007F00;
+color: #FFFFFF;
+text-align:left; 
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-weight:bold; 
+font-size:14px;
+}
+
+TD.L {
+border-left:1px #000000 solid;
+}
+
+TD.R {
+border-right:1px #000000 solid;
+}
+
+TD.T {
+border-top:1px #000000 solid;
+}
+
+TD.B {
+border-bottom:1px #000000 solid;
+}
+
+TD.LR {
+border-left:1px #000000 solid;
+border-right:1px #000000 solid;
+}
+
+TD.TL {
+border-left:1px #000000 solid;
+border-top:1px #000000 solid;
+}
+
+TD.TR {
+border-right:1px #000000 solid;
+border-top:1px #000000 solid;
+}
+
+TD.BR {
+border-right:1px #000000 solid;
+border-bottom:1px #000000 solid;
+}
+
+TD.BL {
+border-left:1px #000000 solid;
+border-bottom:1px #000000 solid;
+}
+
+TD.TLR {
+border-left:1px #000000 solid;
+border-right:1px #000000 solid;
+border-top:1px #000000 solid;
+}
+
+TD.BLR {
+border-left:1px #000000 solid;
+border-right:1px #000000 solid;
+border-bottom:1px #000000 solid;
+}
+
+TD.TRB {
+border-top:1px #000000 solid;
+border-right:1px #000000 solid;
+border-bottom:1px #000000 solid;
+}
+
+TD.TLB {
+border-top:1px #000000 solid;
+border-left:1px #000000 solid;
+border-bottom:1px #000000 solid;
+}
+
+TD.TLRB {
+border-left:1px #000000 solid;
+border-right:1px #000000 solid;
+border-top:1px #000000 solid;
+border-bottom:1px #000000 solid;
+}
+TD.bigcolumn {
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+border-top:1px #000000 solid;
+font-size:13px;
+}
+TD.bigheader {
+background-color: #CCCCCC;
+text-align:left; 
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-weight:bold; 
+font-size:14px 
+}
+
+
+/* Define the default style for buttons and other things of this nature */
+INPUT, TEXTAREA, SELECT, BUTTON{
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size: 11px; 
+color: #000000; 
+text-decoration: none; 
+vertical-align: middle
+}
+SELECT.headerBar {
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size: 13px; 
+text-align: center;
+color: #000000; 
+background-color: #FFFFFF; 
+text-decoration: none; 
+vertical-align: middle
+}
+
+A.title {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+color: #000000;
+text-decoration: none;
+font-weight:bold;
+}
+
+A.biggerblack {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 12px;
+color: #000000;
+text-decoration: underline;
+}
+
+
+A.bigblack {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+color: #000000;
+text-decoration: none;
+}
+
+A.bigblack:hover {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+color: #000000;
+text-decoration: underline;
+}
+
+A.black {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+color: #000000;
+text-decoration: underline;
+}
+
+A.blacknoline {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+color: #000000;
+text-decoration: none;
+}
+
+A.blacknoline:hover {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+color: #000000;
+text-decoration: underline;
+}
+
+A.titleblack {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 12px;
+color: #000000;
+text-decoration: none;
+}
+A.titleblack:hover {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 12px;
+color: #000000;
+text-decoration: underline;
+}
+

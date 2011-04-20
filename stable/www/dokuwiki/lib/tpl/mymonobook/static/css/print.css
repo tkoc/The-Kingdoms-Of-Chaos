@@ -1,0 +1,16 @@
+/* hide some elements */
+.toc, /* TOC */
+div#footer-buttons, /* 80x15 buttons */
+input.button, /* "edit" and some other buttons */
+.dokuwiki div.plugin_translation, /* listing of Andreas Gohr's translation plugin */
+li#usermod, /* "logged in as" message */
+div#catlinks, .bchead { /* (hierarchical) breadcrump navi */
+  display:none;
+}
+/* expand external URLs for printing */
+.urlextern.text:after, .urlextern:after,
+a.urlextern.text:after, a.urlextern:after,
+a.interwiki.text:after, a.interwiki:after {
+  content: " (" attr(href) ") ";
+}
+

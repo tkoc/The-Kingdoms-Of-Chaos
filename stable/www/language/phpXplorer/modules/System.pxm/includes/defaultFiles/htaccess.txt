@@ -1,0 +1,13 @@
+# The following setting is preferred, as phpXplorer documents are UTF-8,
+# but is not required if you have this setting at a higher level, and
+# may not be allowed on Apache servers with restricted override permissions.
+# If you use a non UTF-8 translation you may have to change these setting
+# to other than UTF-8 depending on your webserver configuration.
+# AddDefaultCharset {@encoding}
+
+AuthType Basic
+AuthName "{@AuthName}"
+AuthUserFile "{@AuthUserFile}"
+#AuthGroupFile "{@AuthGroupFile}"
+Require user {@Require users}
+#Require group {@Require groups}

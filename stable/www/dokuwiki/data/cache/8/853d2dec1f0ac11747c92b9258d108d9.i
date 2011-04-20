@@ -1,0 +1,7 @@
+a:16:{i:0;a:3:{i:0;s:14:"document_start";i:1;a:0:{}i:2;i:0;}i:1;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:0;}i:2;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:18:"<?php
+$mylanguage[";}i:2;i:1;}i:3;a:3:{i:0;s:18:"doublequoteopening";i:1;a:0:{}i:2;i:19;}i:4;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:10:"head_title";}i:2;i:20;}i:5;a:3:{i:0;s:18:"doublequoteclosing";i:1;a:0:{}i:2;i:30;}i:6;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:451:"] = 'The Kingdoms of Chaos';
+$mylanguage['head_description'] = 'A massively played multiplayer online strategy game (MMOG). You compete with several other players from all over the world to create the most powerful province and to build the most powerful kingdom.';
+$mylanguage['head_keywords'] = 'game, multiplayer, friends, war, roleplay, strategy';
+$mylanguage['head_generator'] = 'The Kingdoms of Chaos Administration Team';
+$mylanguage['logo'] = ";}i:2;i:31;}i:7;a:3:{i:0;s:18:"doublequoteopening";i:1;a:0:{}i:2;i:482;}i:8;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:9:"TKOC Logo";}i:2;i:483;}i:9;a:3:{i:0;s:18:"doublequoteclosing";i:1;a:0:{}i:2;i:492;}i:10;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:1:";";}i:2;i:493;}i:11;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:494;}i:12;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:494;}i:13;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:3:"?>
+";}i:2;i:496;}i:14;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:498;}i:15;a:3:{i:0;s:12:"document_end";i:1;a:0:{}i:2;i:498;}}
