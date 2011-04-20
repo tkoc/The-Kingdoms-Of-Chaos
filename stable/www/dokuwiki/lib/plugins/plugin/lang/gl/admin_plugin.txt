@@ -1,0 +1,3 @@
+====== Xestión de plugins ======
+
+Nesta páxina pode xestionar todas as accións posíbeis cos [[doku>plugins|plugins]] do DokuWiki. Para poder descargar e instalar un plugin, o seu cartafol de plugins debe ser escribíbel polo servidor web.

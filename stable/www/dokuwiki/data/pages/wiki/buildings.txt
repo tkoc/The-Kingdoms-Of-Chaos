@@ -1,0 +1,68 @@
+====== Buildings ======
+
+==== Buildings Facts ====
+
+table will come here
+http://www.tkoc.net/wiki/index.php?title=Buildings
+
+==== Building descriptions ====
+
+
+=== Farm ===
+   	
+-
+
+=== Wall ===
+
+-
+
+=== Home ===
+
+-
+	   	
+=== Marketplace ===
+
+-
+	
+=== Inn ===
+
+-
+
+=== Wizard Tower === 
+
+-
+
+=== Barrack === 
+ 
+- 
+	
+=== Temple === 
+
+-
+
+=== Mine === 
+
+Available after the knowledge Mining.
+
+
+=== Stables / Beast Dens === 
+
+Available after Metal Working combined with Trade. 
+
+
+=== Blacksmiths === 
+
+Available after the knowledge Metal Working.
+
+
+=== Docks === 
+
+Available after the knowledge Trade.
+
+
+==== Questions about buildings ==== 
+
+
+'''Will I lose my thieves/wizards when destroying my inns?''' 
+
+No, you will not lose your thieves or/and wizards when destroying your Inns, Wizard Towers or Docks. However you will lose your bonus and you cannot retrain them again. Until you make room again for them.

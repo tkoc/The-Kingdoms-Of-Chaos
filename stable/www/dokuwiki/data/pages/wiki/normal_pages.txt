@@ -1,0 +1,21 @@
+Use the following format.
+
+<file>
+
+===== Title (in navbar) =====
+
+==== Section (in navbar) ====
+
+=== Subsection===
+
+</file>
+
+This is how it will look like
+
+
+
+===== Title (in navbar) =====
+
+==== Section (in navbar) ====
+
+=== Subsection===

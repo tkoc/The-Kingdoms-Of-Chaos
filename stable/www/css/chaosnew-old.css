@@ -1,0 +1,489 @@
+/*******************************************************************************
+    The Kingdoms of Chaos - An online browser text game - <http://www.tkoc.net>
+    Copyright (C) 2011 - Administrators of The Kingdoms of Chaos
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Contact Information:
+    Petros Karipidis  - petros@rufunka.com - <http://www.rufunka.com/>
+    Anastasios Nistas - tasosos@gmail.com  - <http://tasos.pavta.com/>
+
+    Other Information
+    =================
+    The exact Author of each source file should be specified after this license
+    notice. If not specified then the "Current Administrators" found at
+    <http://www.tkoc.net/about.php> are considered the Authors of the source
+    file.
+
+    As stated at the License Section 5.d: "If the work has interactive user
+    interfaces, each must display Appropriate Legal Notices; however, if the
+    Program has interactive interfaces that do not display Appropriate Legal
+    Notices, your work need not make them do so.", we require you give
+    credits at the appropriate section of your interface.
+********************************************************************************/
+@charset "utf-8";
+/* CSS Document */
+
+
+/**************************************************
+***************		General CSS		***************
+**************************************************/
+p {
+	margin-top:5px;
+	margin-bottom:25px;
+}
+
+h4 {
+	margin-bottom:10px;
+}
+
+.left {
+	float:left;
+	margin:10px;
+}
+
+.right {
+	float:right;
+	margin:10px;
+}
+
+.right-text {
+	float:right;
+	margin-right:10px;
+}
+
+
+.body
+{
+	font-family: verdana, arial, FreeSans, "Courier New", monospace;
+	font-size: 13px;
+	background-image: url(../images/background.jpg);
+	background-repeat: repeat-x;
+	background-color: #1e1913;
+	margin:auto;
+	position:relative;
+	overflow-x:hidden;
+}
+
+.page-container {
+	width:750px; /*Needs Fix, 800 is too much for 800x600 monitors, or go for greater value*/
+	margin-left:auto;
+	margin-right:auto;
+	border-color:#432E13;
+	border-style:solid;
+	border-width:1px;
+	background-color: #000000;
+	margin-top:10px;
+}
+
+
+.content {
+	clear:both;
+	height:auto;
+	width:710px; /*Needs Fix, 800 is too much for 800x600 monitors, or go for greater value*/
+	margin-left:20px;
+	margin-right:auto;
+	margin-top:30px;
+	margin-bottom:30px;
+	color:#EEEEBB;
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-khtml-border-radius:8px;
+	border-radius: 8px;
+	text-align:justify;
+	/*border-color:#FFFFCC;
+	border-style:solid;
+	border-width:thin;*/
+}
+
+.content p {
+	text-align:justify;
+	font-size:13px;
+}
+
+.content a {
+	text-decoration:underline;
+	color:#FFFFCC;
+}
+
+
+/**************************************************
+***************		Main Pages CSS	***************
+**************************************************/
+.logo
+{
+	width:725px;
+	height:243px;
+	background-color:inherit;
+	margin-top:25px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.logo img {
+	border:none;
+}
+
+.buttons {
+	float:left;
+	position:relative;
+	left:50%;
+	text-align:left;
+	font-size:18px;
+	margin-top:15px;
+	
+}
+.buttons ul {
+	list-style:none;
+	position:relative;
+	left:-50%;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-khtml-border-radius:8px;
+	border-radius: 8px;
+	border-color:#FFFFCC;
+	border-style:solid;
+	border-width:1px;
+	padding:2px 0px;
+	height:24px;
+}
+.buttons li {
+	float:left;
+	position:relative;
+}/* ie needs position:relative here*/
+
+.buttons a {
+	text-decoration:none;
+	margin:0px 15px 0px 15px;
+	float:left;
+	color:#FFFFCC;
+	text-align:center;
+	white-space:nowrap;
+}
+.buttons a:hover {
+	color:#FFFFCC;
+	text-decoration:underline;
+}
+
+/*
+.line {
+	margin-bottom:10px;
+	clear:both;
+}
+
+
+.form-title-login, .form-field-login {
+	float:left;
+}
+
+.form-title-login {
+	margin-left:233px;
+	margin-right:10px;
+}
+
+.loginbutton {
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 13px; 
+	text-align: center;
+	color: #000000; 
+	background-color: #FFFFFF; 
+	text-decoration: none; 
+	vertical-align: middle
+}*/
+
+
+
+/**************************************************
+***************		Guide CSS		***************
+**************************************************/
+.guide-button {
+	width:120px;
+	height:120px;
+}
+
+.guideheader {
+	/*background:#86846D;
+	color:#FFEECC;*/
+	background-color:#AF9F7B;
+	color:#000000;
+	font-size:14px;
+	font-weight: bold;
+	margin-bottom:0px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-khtml-border-radius:6px;
+	border-radius: 6px;
+	padding-left:10px;
+	height:18px;
+	clear:both;
+}
+
+.guideheader a {
+	color:#000000;
+}
+
+.units-description {
+	width:90%;
+	margin:0px auto;
+}
+
+
+
+/**************************************************
+***************		Game CSS		***************
+**************************************************/
+.game-header {
+	margin:0px 15px 30px 15px;
+	height:140px;
+}
+
+
+.cornerpic {
+	width:150px;
+	height:138px;
+	float:left;
+}
+
+.header-data {
+	width:528px;
+	height: 138px;
+	float:right;
+}
+
+.donation-notify {
+	height:30px;
+	clear:both;
+	width:100%;
+	text-align:justify;
+}
+
+.donation-notify img {
+	float:left;
+}
+
+.donation-notify span a {
+	text-decoration:underline;
+	color:#FFEECC;
+}
+
+.donation-notify span a:hover {
+	text-decoration:underline;
+	color:#fff7e6;
+}
+
+.donation-notify span {
+	font-size:11px;
+	color:#FFEECC;
+	line-height:20px;
+}
+
+.province-info-header {
+	height:82px;
+	margin-bottom:5px;
+	margin-top:20px;
+}
+
+.province-info-header .text {
+	margin-top:27px;
+	font-size:12px;
+	text-align:center;
+	color:#FFFFCC;
+}
+
+.province-info-header .networth{
+	width: 97px;
+	height:82px;
+	float:left;
+	background-image:url(../img/Statusbar_networth.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+.province-info-header .peasants{
+	width: 97px;
+	height:82px;
+	float:left;
+	background-image:url(../img/Statusbar_peasants.gif);
+}
+
+.province-info-header .food {
+	width: 97px;
+	height:82px;
+	float:left;
+	background-image:url(../img/Statusbar_food.gif);
+}
+
+.province-info-header .metal {
+	width: 97px;
+	height:82px;
+	float:left;
+	background-image:url(../img/Statusbar_metal.gif);
+}
+
+.province-info-header .gold{
+	width: 140px;
+	height:82px;
+	float:left;
+	background-image:url(../img/Statusbar_gold.gif);
+}
+
+.time-tick {
+	height:20px;
+	color:#FFFFCC;
+	font-size:11px;
+	/*margin-right:10px;*/
+	/*margin-bottom:10px;*/
+}
+
+.left-time {
+	float:left;
+}
+
+.right-tick {
+	float:right;
+}
+
+
+.game-buttons {
+	clear:both;
+	position:relative;
+	left: 380px;
+	text-align:left;
+	font-size:17px;
+	width:515px;
+	margin-bottom:-10px;
+	z-index:1;
+}
+
+
+.game-buttons ul {
+	list-style:none;
+	position:relative;
+	left:-50%;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-khtml-border-radius:8px;
+	border-radius: 8px;
+	border-color:#FFFFCC;
+	border-style:solid;
+	border-width:1px;
+	padding:2px 0px;
+	height:24px;
+}
+.game-buttons li {
+	float:left;
+	position:relative;
+}/* ie needs position:relative here*/
+
+.game-buttons-link {
+	text-decoration:none;
+	margin:0px 10px 0px 12px;
+	*margin:0px 5px 0px 10px;
+	float:left;
+	color:#FFFFCC;
+	text-align:center;
+	white-space:nowrap;
+}
+
+/* Dropdown menu begins here */
+.game-buttons li:hover > .absolute
+{
+	display:block;
+}
+
+.absolute {
+	position:absolute;
+	width:155px;
+	display:none;
+	position:absolute;
+	font-size:12px;
+	left:5px;
+}
+
+.ddmenu-line {
+	background-color:#17130e;
+	border-color:#FFFFCC;
+	border-style:solid;
+	border-width:1px;
+	position:relative;
+	margin-top:26px; /* To margin mpainei edo kai oxi sto .absolute oste to dropdown menu na min xanetai */
+	margin-bottom:-27px;
+	height:16px;
+	/*display:inline-block;*/
+}
+
+.ddmenu-line-link {
+	float:left;
+	width:106px;
+	margin-left:5px;
+}
+
+.ddmenu-line-link a {
+	text-decoration:none;
+	color:#FFFFCC;
+}
+
+.ddmenu-line-link a:hover {
+	color:#FFFFCC;
+	text-decoration:underline;
+}
+
+
+.ddmenu-line-shortcut {
+	float:left;
+	width:40px;
+	font-size:9px;
+	margin-top:1px;
+	text-align:right;
+}
+
+/* Submenu for the preferences page */
+.game-sub-buttons {
+	float:left;
+	position:relative;
+	left:50%;
+	text-align:left;
+	font-size:15px;
+	z-index:0; /* In order to solve the coalition with the game buttons */
+	margin-top:-30px;
+}
+
+.game-sub-buttons ul {
+	list-style:none;
+	position:relative;
+	left:-50%;
+	padding:2px 0px;
+	height:24px;
+	
+}
+
+.game-sub-buttons li {
+	float:left;
+	position:relative;
+}/* ie needs position:relative here*/
+
+.game-sub-buttons a {
+	text-decoration:none;
+	margin:0px 10px 0px 10px;
+	float:left;
+	color:#FFFFCC;
+	text-align:center;
+	white-space:nowrap;
+}
+.game-sub-buttons a:hover {
+	color:#FFFFCC;
+	text-decoration:underline;
+}
+

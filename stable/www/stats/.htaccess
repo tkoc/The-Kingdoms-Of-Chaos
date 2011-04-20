@@ -1,0 +1,11 @@
+
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^stats.tkoc.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www.stats.tkoc.net$
+RewriteRule ^(.*)$ "http\:\/\/www\.tkoc\.net\/$1" [R=301,L]
+
+AuthType Basic
+AuthName "a_b_c"
+AuthUserFile "/home/tkocnet/.htpasswds/public_html/stats/passwd"
+require valid-user
