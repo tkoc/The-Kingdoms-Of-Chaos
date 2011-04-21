@@ -71,3 +71,4 @@ include("headernew.php"); ?>
 	<p>Erlend Ringstad owned the server and hosted the game for free.  We love him :)</p>
 </div>
 <?php include("footernew.php");?>
+
